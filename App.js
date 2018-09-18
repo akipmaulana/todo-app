@@ -10,12 +10,12 @@ import React, {Component} from 'react';
 import RNSplashScreen from 'react-native-splash-screen';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { createBottomTabNavigator } from 'react-navigation';
-import HomeScreen from 'features/home/components/HomeScreen';
+import ProjectScreen from 'features/project/components/ProjectScreen';
 import FavoriteScreen from 'features/favorite/components/FavoriteScreen';
 
 const RootStack = createBottomTabNavigator(
   {
-    Home: HomeScreen,
+    Project: ProjectScreen,
     Favorite: FavoriteScreen,
   },
   {
@@ -23,7 +23,7 @@ const RootStack = createBottomTabNavigator(
       tabBarIcon: ({ focused, tintColor }) => {
         const { routeName } = navigation.state;
         let iconName;
-        if (routeName === 'Home') {
+        if (routeName === 'Project') {
           iconName = `ios-information-circle${focused ? '' : '-outline'}`;
         } else if (routeName === 'Favorite') {
           iconName = `ios-options${focused ? '' : '-outline'}`;
