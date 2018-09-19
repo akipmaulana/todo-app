@@ -1,6 +1,9 @@
 import React, {Component} from 'react'
-import {StyleSheet} from 'react-native';
+import {StyleSheet, View, Dimensions} from 'react-native';
 import {Container, Header, Left, Body, Right, Title, Content, List, ListItem, Text} from 'native-base';
+
+const height = Dimensions.get('window').height;
+const width = Dimensions.get('window').width;
 
 export default class ProjectScreen extends Component {
     render() {
@@ -9,11 +12,13 @@ export default class ProjectScreen extends Component {
             <Header style={styles.nav_container}>
               <Left/>
               <Body>
-                <Title style={styles.nav_title}>Projects</Title>
+                <Title style={styles.nav_title}>PROJECTS</Title>
               </Body>
               <Right />
             </Header>
             <Content style={styles.content}>
+              <View style={styles.card_header} >
+              </View>
               <List>
                 <ListItem>
                   <Text>Simon Mignolet</Text>
@@ -36,10 +41,16 @@ const styles = StyleSheet.create({
         backgroundColor: '#FFFFFF'
     },
     nav_title: {
-      color: '#29B6F6'
+      color: '#29B6F6',
+      fontFamily: 'OpenSans-Regular',
     },
     content: {
       flex: 1,
-      backgroundColor: '#FFFFFF',
+      backgroundColor: '#F8F8F8',
     },
+    card_header: {
+      backgroundColor: '#FFFFFF',
+      width: width,
+      height: height*0.35
+    }
   });
