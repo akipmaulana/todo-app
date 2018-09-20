@@ -1,4 +1,4 @@
-export const Fonts = {
+export const Font = {
     bold: "OpenSans-Bold",
     bold_italic: 'OpenSans-BoldItalic',
     extra_bold: 'OpenSans-ExtraBold',
