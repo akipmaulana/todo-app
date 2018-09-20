@@ -10,8 +10,8 @@ import React, {Component} from 'react';
 import RNSplashScreen from 'react-native-splash-screen';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { createBottomTabNavigator } from 'react-navigation';
-import ProjectScreen from 'features/project/components/ProjectScreen';
-import FavoriteScreen from 'features/favorite/components/FavoriteScreen';
+import ProjectScreen from 'screen/project/components/ProjectScreen';
+import FavoriteScreen from 'screen/favorite/components/FavoriteScreen';
 
 const RootStack = createBottomTabNavigator(
   {
