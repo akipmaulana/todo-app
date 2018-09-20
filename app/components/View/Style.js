@@ -11,13 +11,15 @@ export default StyleSheet.create({
         padding: 16,
         backgroundColor: Color.white,
         justifyContent: 'center',
+        alignItems: 'center',
         flexDirection: 'row',
         width: Dimen.full_width,
         height: Dimen.height(0.2)
     },
     header_text: {
         fontFamily: Font.family.light,
-        fontSize: Font.size.regular,
+        fontSize: Font.size.xx_large,
+        flexWrap: 'wrap',
         color: Color.blue,
     }
 })

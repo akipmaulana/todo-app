@@ -13,10 +13,12 @@ export const Font = {
     },
     size: {
         tiny: 7,
-        small: 13,
-        medium: 15,
-        regular: 16,
-        large: 24,
-        x_large: 78
+        small: 11,
+        medium: 13,
+        regular: 15,
+        large: 17,
+        x_large: 24,
+        xx_large: 32,
+        xxx_large: 78,
     }
 }
