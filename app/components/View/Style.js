@@ -15,12 +15,5 @@ export default StyleSheet.create({
         flexDirection: 'row',
         width: Dimen.full_width,
         height: Dimen.height(0.2)
-    },
-    header_text: {
-        flex: 1,
-        fontFamily: Font.family.light,
-        fontSize: Font.size.xx_large,
-        flexWrap: 'wrap',
-        color: Color.blue,
     }
 })
