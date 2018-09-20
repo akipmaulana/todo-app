@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import {StyleSheet, View, Dimensions} from 'react-native';
 import {Container, Content, List, ListItem, Text} from 'native-base';
-import { NavHeader } from "components";
+import NavHeader from "components";
 
 const height = Dimensions.get('window').height;
 const width = Dimensions.get('window').width;

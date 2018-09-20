@@ -4,7 +4,7 @@ import styles from "./Styles";
 
 const NavHeader = props => {
 
-    const { text, leftButton, righButton } = props;
+    const { text } = props;
 
     return (
         <Header style={styles.nav_container}>
@@ -14,7 +14,7 @@ const NavHeader = props => {
             </Body>
             <Right />
         </Header>
-    )
+    );
 }
 
 export default NavHeader;
