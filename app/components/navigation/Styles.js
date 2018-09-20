@@ -1,12 +1,12 @@
 import {StyleSheet} from "react-native";
-import {colors} from "config/Colors";
+import { Colors, Fonts } from "config";
 
 export default StyleSheet.create({
     nav_container: {
-        backgroundColor: colors.white
+        backgroundColor: Colors.white
     },
     nav_title: {
-      color: colors.blue,
-      fontFamily: 'OpenSans-Regular',
+      color: Colors.blue,
+      fontFamily: Fonts.regular,
     },
 })
