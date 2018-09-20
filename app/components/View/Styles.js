@@ -1,10 +1,23 @@
 import {StyleSheet} from "react-native";
-import { Colors, Dimens } from "config";
+import { Colors, Dimens, Fonts } from "config";
 
 export default StyleSheet.create({
-    view_parallax: {
+    base_view: {
         backgroundColor: Colors.white,
         width: Dimens.full_width,
-        height: Dimens.height(0.35)
+        height: Dimens.full_height,
+    },
+    view_parallax: {
+        padding: 16,
+        backgroundColor: Colors.white,
+        justifyContent: 'center',
+        flexDirection: 'row',
+        width: Dimens.full_width,
+        height: Dimens.height(0.2)
+    },
+    header_text: {
+        fontFamily: Fonts.light,
+        fontSize: 32,
+        color: Colors.blue,
     }
 })
