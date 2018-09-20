@@ -10,7 +10,7 @@ export default class ProjectScreen extends Component {
           <Container>
             <NavHeader text={ 'PROJECTS' } />
             <Content style={styles.content}>
-              <ViewParallax amount_project={ 9 } />
+              <ViewParallax amount_project={ 1024 } />
               <List>
                 <ListItem>
                   <Text>Simon Mignolet</Text>
