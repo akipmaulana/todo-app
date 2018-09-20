@@ -16,8 +16,8 @@ export default StyleSheet.create({
         height: Dimen.height(0.2)
     },
     header_text: {
-        fontFamily: Font.light,
-        fontSize: 32,
+        fontFamily: Font.family.light,
+        fontSize: Font.size.regular,
         color: Color.blue,
     }
 })
