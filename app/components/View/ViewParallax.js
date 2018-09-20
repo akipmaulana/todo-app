@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import { View } from 'react-native';
 import Style from './Style';
 import { TextTripleExtraLarge } from '../Text';
-import Localization from 'assets/locales'
+import Localization, * as LocalizeKey from 'assets/locales';
+// import { Constant } from 'config';
 
 class ViewParallax extends Component {
 
@@ -10,7 +11,7 @@ class ViewParallax extends Component {
         return (
             <View style={Style.view_parallax} >
                 <TextTripleExtraLarge text={ this.props.amount_project } style={{flex: 1}} />
-                <TextTripleExtraLarge text={ Localization.t('project_command') } style={{flex: 3}} />
+                <TextTripleExtraLarge text={ Localization.t(LocalizeKey.PROJECT_COMMAND) } style={{flex: 3}} />
             </View>
         );
     }
