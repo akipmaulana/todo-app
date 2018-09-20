@@ -1,10 +1,8 @@
 import React, {Component} from 'react'
-import {StyleSheet, View, Dimensions} from 'react-native';
+import {StyleSheet} from 'react-native';
 import {Container, Content, List, ListItem, Text} from 'native-base';
-import NavHeader from "components";
-
-const height = Dimensions.get('window').height;
-const width = Dimensions.get('window').width;
+import { NavHeader } from "components/Navigation";
+import { ViewParallax } from "components/View";
 
 export default class ProjectScreen extends Component {
     render() {
@@ -12,8 +10,7 @@ export default class ProjectScreen extends Component {
           <Container>
             <NavHeader text={ 'PROJECTS' } />
             <Content style={styles.content}>
-              <View style={styles.card_header} >
-              </View>
+              <ViewParallax />
               <List>
                 <ListItem>
                   <Text>Simon Mignolet</Text>
@@ -35,10 +32,5 @@ const styles = StyleSheet.create({
     content: {
       flex: 1,
       backgroundColor: '#F8F8F8',
-    },
-    card_header: {
-      backgroundColor: '#FFFFFF',
-      width: width,
-      height: height*0.35
     }
   });

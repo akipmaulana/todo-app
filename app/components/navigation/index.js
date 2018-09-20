@@ -1,2 +1,1 @@
-import NavHeader from "./NavHeader";
-export default NavHeader;
+export { NavHeader } from "./NavHeader";
