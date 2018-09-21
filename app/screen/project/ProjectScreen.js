@@ -1,11 +1,10 @@
 import React, {Component} from 'react'
-import {StyleSheet} from 'react-native';
 import {Container, Content} from 'native-base';
 import { NavHeader } from "components/Navigation";
 import { ProjectHeaderView } from "./components/View";
 import { ProjectCell } from "components/Cell";
 import { ButtonCircular } from 'components/Button'
-import { Color } from '../../config/Theme/Color';
+import { Color } from 'config';
 
 export default class ProjectScreen extends Component {
     render() {

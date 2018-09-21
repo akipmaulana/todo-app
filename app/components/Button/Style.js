@@ -18,6 +18,14 @@ export default StyleSheet.create({
       width: 54,
       height: 54,
       alignSelf: 'center',
+      justifyContent: 'center',
+      alignItems: 'center',
       borderRadius: Dimen.circular_radius(54, 54),
     },
+    button_circular_icon: {
+        fontSize: Font.size.large,
+        color: Color.white,
+        fontSize: 32,
+        alignSelf: 'center',
+    }
 })
