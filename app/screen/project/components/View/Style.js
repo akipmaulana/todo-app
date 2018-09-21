@@ -2,7 +2,7 @@ import {StyleSheet} from "react-native";
 import { Color, Dimen } from "config";
 
 export default StyleSheet.create({
-    view_parallax: {
+    project_header_view: {
         padding: 16,
         backgroundColor: Color.white,
         justifyContent: 'center',

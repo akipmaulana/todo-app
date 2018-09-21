@@ -1,3 +1,3 @@
-import ViewParallax from "./ViewParallax";
+import ProjectHeaderView from "./ProjectHeaderView";
 
-export {ViewParallax};
+export {ProjectHeaderView};
