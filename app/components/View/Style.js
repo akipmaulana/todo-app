@@ -6,14 +6,5 @@ export default StyleSheet.create({
         backgroundColor: Color.white,
         width: Dimen.full_width,
         height: Dimen.full_height,
-    },
-    view_parallax: {
-        padding: 16,
-        backgroundColor: Color.white,
-        justifyContent: 'center',
-        alignItems: 'center',
-        flexDirection: 'row',
-        width: Dimen.full_width,
-        height: Dimen.height(0.2)
     }
 })

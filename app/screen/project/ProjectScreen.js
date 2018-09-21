@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import {StyleSheet} from 'react-native';
 import {Container, Content} from 'native-base';
 import { NavHeader } from "components/Navigation";
-import { ViewParallax } from "components/View";
+import { ViewParallax } from "./components/View";
 import { ProjectCell } from "components/Cell";
 
 export default class ProjectScreen extends Component {
@@ -12,18 +12,12 @@ export default class ProjectScreen extends Component {
             <NavHeader text={ 'PROJECTS' } />
             <ViewParallax amount_project={ 9 } />
             <Content style={styles.content}>
-              <ProjectCell text={ 'Simon Mignolet Akip maulaan  asdas asdasdsd asdasd' }/>
-              <ProjectCell text={ 'Nathaniel Clyne' }/>
-              <ProjectCell text={ 'Dejan Lovren' }/>
-              <ProjectCell text={ 'Simon Mignolet' }/>
-              <ProjectCell text={ 'Nathaniel Clyne' }/>
-              <ProjectCell text={ 'Dejan Lovren' }/>
-              <ProjectCell text={ 'Simon Mignolet' }/>
-              <ProjectCell text={ 'Nathaniel Clyne' }/>
-              <ProjectCell text={ 'Dejan Lovren' }/>
-              <ProjectCell text={ 'Simon Mignolet' }/>
-              <ProjectCell text={ 'Nathaniel Clyne' }/>
-              <ProjectCell text={ 'Dejan Lovren' }/>
+              <ProjectCell text={ 'Workout' }/>
+              <ProjectCell text={ 'Decorate a Party' }/>
+              <ProjectCell text={ 'Go Travel' }/>
+              <ProjectCell text={ 'Meeting' }/>
+              <ProjectCell text={ 'Hiking' }/>
+              <ProjectCell text={ 'Shopping' }/>
             </Content>
           </Container>
         );

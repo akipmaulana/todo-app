@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import { View } from 'react-native';
 import Style from './Style';
-import { TextTripleExtraLarge } from '../Text';
+import { TextTripleExtraLarge } from 'components/Text';
 import Localization, * as LocalizeKey from 'assets/locales';
-// import { Constant } from 'config';
 
 class ViewParallax extends Component {
 
