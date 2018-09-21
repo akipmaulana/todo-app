@@ -8,5 +8,11 @@ export const Dimen = {
     },
     height: (persentage) => {
         return Dimen.full_height * persentage
-    }
+    },
+    circular_radius: (width, height) => {
+        return Math.round(width + height) / 2
+    },
+    card_margin_side: 8,
+    card_radius: 4,
+    badge_cell: 16,
 }
