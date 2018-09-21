@@ -26,7 +26,7 @@ const RootStack = createBottomTabNavigator(
         if (routeName === 'Project') {
           iconName = `ios-information-circle${focused ? '' : '-outline'}`;
         } else if (routeName === 'Favorite') {
-          iconName = `ios-options${focused ? '' : '-outline'}`;
+          iconName = `ios-square${focused ? '' : '-outline'}`;
         }
 
         // You can return any component that you like here! We usually use an
