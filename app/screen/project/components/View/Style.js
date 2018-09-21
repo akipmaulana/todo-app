@@ -9,6 +9,6 @@ export default StyleSheet.create({
         alignItems: 'center',
         flexDirection: 'row',
         width: Dimen.full_width,
-        height: Dimen.height(0.2)
+        height: Dimen.project_header_height()
     }
 })

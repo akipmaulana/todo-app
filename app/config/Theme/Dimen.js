@@ -15,4 +15,7 @@ export const Dimen = {
     card_margin_side: 8,
     card_radius: 4,
     badge_cell: 16,
+    project_header_height: () => {
+        return Dimen.full_height * 0.2
+    }
 }
