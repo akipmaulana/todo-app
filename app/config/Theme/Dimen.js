@@ -17,5 +17,11 @@ export const Dimen = {
     badge_cell: 16,
     project_header_height: () => {
         return Dimen.full_height * 0.2
+    },
+    button: {
+        height: 48,
+        margin: 16,
+        padding: 8,
+        radius: 4,
     }
 }

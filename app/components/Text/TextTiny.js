@@ -1,5 +1,5 @@
 import React from 'react'
-import TextBase from './TextBase'
+import { TextBase } from './TextBase'
 import { Font } from "config";
 
 export const TextTiny = props => {
@@ -10,5 +10,3 @@ export const TextTiny = props => {
             fontSize={ Font.size.tiny } />
     );
 }
-
-export default TextTiny;

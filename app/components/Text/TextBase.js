@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react'
 import {Text} from 'react-native';
 import { Color, Font } from "config";
 
-const TextBase = ({
+export const TextBase = ({
     color = Color.dark_grey2,
     fontSize = Font.size.regular,
     fontFamily = Font.family.light,
@@ -23,5 +23,3 @@ const TextBase = ({
         </Text>
     )
 }
-
-export default TextBase;

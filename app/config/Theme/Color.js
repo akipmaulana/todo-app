@@ -13,4 +13,5 @@ export const Color = {
     dark_grey2: '#4D4D4D',
     white: '#FFFFFF',
     black: '#000000',
+    transparant: '#00000000',
 }
