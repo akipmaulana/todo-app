@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View } from 'react-native';
+import { View } from 'native-base';
 import Style from './Style';
 import { TextTripleExtraLarge } from 'components/Text';
 import Localization, * as LocalizeKey from 'assets/locales';

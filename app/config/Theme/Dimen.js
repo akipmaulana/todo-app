@@ -22,6 +22,6 @@ export const Dimen = {
         height: 48,
         margin: 16,
         padding: 8,
-        radius: 4,
+        borderRadius: 24,
     }
 }

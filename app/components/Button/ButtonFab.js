@@ -1,6 +1,6 @@
 import React from 'react'
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
-import {View, Button, Icon} from 'native-base';
+import {View, Button} from 'native-base';
 import Style from "./Style";
 
 export const ButtonFab = props => {
