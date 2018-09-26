@@ -10,5 +10,8 @@ export default StyleSheet.create({
         flexDirection: 'row',
         width: Dimen.full_width,
         height: Dimen.project_header_height()
+    },
+    project_header_view_text: {
+        color: Color.blue
     }
 })

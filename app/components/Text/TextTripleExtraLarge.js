@@ -1,13 +1,12 @@
-import React, { PropTypes } from 'react'
+import React from 'react'
 import TextBase from './TextBase'
-import { Color, Font } from "config";
+import { Font } from "config";
 
 export const TextTripleExtraLarge = props => {
 
     return (
         <TextBase 
             {...props} 
-            color={ Color.blue }
             fontSize={ Font.size.xxx_large } />
     );
 }
