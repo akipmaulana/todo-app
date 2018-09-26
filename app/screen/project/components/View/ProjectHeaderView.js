@@ -4,7 +4,7 @@ import Style from './Style';
 import { TextTripleExtraLarge } from 'components/Text';
 import Localization, * as LocalizeKey from 'assets/locales';
 
-class ProjectHeaderView extends Component {
+export class ProjectHeaderView extends Component {
 
     render() {
         return (
@@ -15,5 +15,3 @@ class ProjectHeaderView extends Component {
         );
     }
 }
-
-export default ProjectHeaderView;

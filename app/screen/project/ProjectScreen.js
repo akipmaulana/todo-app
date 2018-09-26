@@ -1,10 +1,11 @@
 import React, {Component} from 'react'
-import {Container, Content} from 'native-base';
-import { NavHeader } from "components/Navigation";
-import { ProjectHeaderView } from "./components/View";
-import { ProjectCell } from "components/Cell";
+import {Container, Content} from 'native-base'
+import { NavHeader } from "components/Navigation"
+import { ProjectHeaderView } from "./components/View"
+import { ProjectInsertModal } from './components/Modal'
+import { ProjectCell } from "components/Cell"
 import { ButtonFab, ButtonPrimary, ButtonSecondary } from 'components/Button'
-import { Color } from 'config';
+import { Color } from 'config'
 
 export default class ProjectScreen extends Component {
     render() {
@@ -21,8 +22,7 @@ export default class ProjectScreen extends Component {
               <ProjectCell text={ 'Shopping' }/>
             </Content>
             <ButtonFab icon={"add"}/>
-            <ButtonPrimary text="Click" />
-            <ButtonSecondary text="Delete" color={Color.red} />
+            <ProjectInsertModal />
           </Container>
         );
     }

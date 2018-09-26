@@ -1,3 +1,1 @@
-import ProjectHeaderView from "./ProjectHeaderView";
-
-export {ProjectHeaderView};
+export { ProjectHeaderView } from "./ProjectHeaderView"

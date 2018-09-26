@@ -5,7 +5,7 @@ import { Color, Font } from "config";
 export const TextBase = ({
     color = Color.dark_grey2,
     fontSize = Font.size.regular,
-    fontFamily = Font.family.light,
+    fontFamily = Font.family.regular,
     flex = 1,
     ...props,
 }) => {

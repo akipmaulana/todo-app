@@ -12,3 +12,4 @@ I18n.translations = {
 export default I18n;
 
 export const PROJECT_COMMAND = 'project_command';
+export const CREATE_NEW_PROJECT = 'create_new_project';
