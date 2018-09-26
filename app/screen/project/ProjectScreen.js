@@ -3,7 +3,7 @@ import {Container, Content} from 'native-base';
 import { NavHeader } from "components/Navigation";
 import { ProjectHeaderView } from "./components/View";
 import { ProjectCell } from "components/Cell";
-import { ButtonFab, ButtonPrimary } from 'components/Button'
+import { ButtonFab, ButtonPrimary, ButtonSecondary } from 'components/Button'
 import { Color } from 'config';
 
 export default class ProjectScreen extends Component {
@@ -22,6 +22,7 @@ export default class ProjectScreen extends Component {
             </Content>
             <ButtonFab/>
             <ButtonPrimary text="Click" />
+            <ButtonSecondary text="Delete" color={Color.red} />
           </Container>
         );
     }

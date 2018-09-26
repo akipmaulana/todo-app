@@ -28,7 +28,7 @@ export const ButtonBase = ({
         borderColor,
     }
     return (
-        <Button bordered {...props} style={sx}>
+        <Button {...props} style={sx}>
             <TextLarge text={text.toUpperCase()} fontFamily={fontFamily} color={color} flex={0} />
         </Button>
     )
