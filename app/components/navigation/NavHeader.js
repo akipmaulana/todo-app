@@ -7,7 +7,7 @@ export const NavHeader = props => {
     const { text } = props;
 
     return (
-        <Header style={Style.nav_container}>
+        <Header style={Style.nav_container} androidStatusBarColor={ Style.nav_container.backgroundColor }>
             <Left/>
             <Body>
                 <Title style={Style.nav_title}>{text}</Title>

@@ -33,7 +33,7 @@ const RootStack = createBottomTabNavigator(
             iconName = `ios-albums`;  
             break;
           case 'History':
-            iconName = 'ios-clock';
+            iconName = 'ios-clock'; 
             break;
           case 'Favorite':
             iconName = `ios-heart`;
