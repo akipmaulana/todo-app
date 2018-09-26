@@ -10,7 +10,7 @@ export const ButtonFab = props => {
     return (
         <View style={Style.fab_view}>
             <Button style={Style.fab_button}>
-                <MaterialIcons name="add" style={Style.fab_icon} />
+                <MaterialIcons name={icon} style={Style.fab_icon} />
             </Button>
         </View>
     );

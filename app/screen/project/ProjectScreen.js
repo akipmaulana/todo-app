@@ -20,7 +20,7 @@ export default class ProjectScreen extends Component {
               <ProjectCell text={ 'Hiking' }/>
               <ProjectCell text={ 'Shopping' }/>
             </Content>
-            <ButtonFab/>
+            <ButtonFab icon={"add"}/>
             <ButtonPrimary text="Click" />
             <ButtonSecondary text="Delete" color={Color.red} />
           </Container>
