@@ -1,15 +1,14 @@
 import React, { PropTypes } from 'react'
-import {Text} from 'react-native';
-import Style from "./Style";
+import TextBase from './TextBase'
+import { Color, Font } from "config";
 
 export const TextTripleExtraLarge = props => {
 
-    const { text } = props;
-
     return (
-        <Text numberOfLines={2} adjustsFontSizeToFit={true} style={[{...Style.text_triple_extra_large, ...props.style}]} >
-            { text }
-        </Text>
+        <TextBase 
+            {...props} 
+            color={ Color.blue }
+            fontSize={ Font.size.xxx_large } />
     );
 }
 

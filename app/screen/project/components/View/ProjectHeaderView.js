@@ -9,8 +9,8 @@ class ProjectHeaderView extends Component {
     render() {
         return (
             <View style={Style.project_header_view} >
-                <TextTripleExtraLarge text={ this.props.amount_project } style={{flex: 1}} />
-                <TextTripleExtraLarge text={ Localization.t(LocalizeKey.PROJECT_COMMAND) } style={{flex: 3}} />
+                <TextTripleExtraLarge text={ this.props.amount_project } flex={1} />
+                <TextTripleExtraLarge text={ Localization.t(LocalizeKey.PROJECT_COMMAND) } flex={3}  />
             </View>
         );
     }
