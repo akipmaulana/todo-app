@@ -1,3 +1,5 @@
+import { Platform } from "react-native";
+
 export const Font = {
     family: {
         bold: "OpenSans-Bold",
@@ -18,7 +20,7 @@ export const Font = {
         regular: 15,
         large: 17,
         x_large: 24,
-        xx_large: 32,
-        xxx_large: 78,
+        xx_large: Platform.os === 'ios' ? 32 : 24,
+        xxx_large: Platform.os === 'ios' ? 78 : 32,
     }
 }
