@@ -11,6 +11,7 @@ export class ProjectInsertModal extends Component {
             <View style={Style.pim_background_view} >
                 <View style={Style.pim_header_view}>
                     <TextLarge 
+                        flex={0}
                         text={ Localization.t(LocalizeKey.CREATE_NEW_PROJECT) } 
                         color={ Style.pim_header_text.color } 
                         fontFamily={ Style.pim_header_text.fontFamily }/>
