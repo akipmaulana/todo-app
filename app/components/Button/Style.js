@@ -2,7 +2,7 @@ import {StyleSheet} from "react-native";
 import { Color, Font, Dimen } from "config";
 
 export default StyleSheet.create({
-    button_circular_view: {
+    fab_view: {
         backgroundColor: Color.light_grey1,
         width: 64,
         height: 64,
@@ -12,7 +12,7 @@ export default StyleSheet.create({
         alignSelf: 'center',
         marginTop: Dimen.project_header_height() + 64/2 + 4,
     },
-    button_circular: {
+    fab_button: {
       backgroundColor: Color.amber,
       fontFamily: Font.family.regular,
       width: 54,
@@ -22,7 +22,7 @@ export default StyleSheet.create({
       alignItems: 'center',
       borderRadius: Dimen.circular_radius(54, 54),
     },
-    button_circular_icon: {
+    fab_icon: {
         fontSize: Font.size.large,
         color: Color.white,
         fontSize: 32,

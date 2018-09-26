@@ -3,7 +3,7 @@ import {Container, Content} from 'native-base';
 import { NavHeader } from "components/Navigation";
 import { ProjectHeaderView } from "./components/View";
 import { ProjectCell } from "components/Cell";
-import { ButtonCircular } from 'components/Button'
+import { ButtonFab } from 'components/Button'
 import { Color } from 'config';
 
 export default class ProjectScreen extends Component {
@@ -20,7 +20,7 @@ export default class ProjectScreen extends Component {
               <ProjectCell text={ 'Hiking' }/>
               <ProjectCell text={ 'Shopping' }/>
             </Content>
-            <ButtonCircular/>
+            <ButtonFab/>
           </Container>
         );
     }
