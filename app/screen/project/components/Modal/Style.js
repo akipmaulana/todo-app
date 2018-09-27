@@ -28,8 +28,7 @@ export default StyleSheet.create({
     pim_form: {
         flexDirection: 'column',
         justifyContent: 'center',
-        flex: 1,
         margin: Dimen.form.title.margin,
-        backgroundColor: Color.light_grey1,
+        flex: 1,
     },
 })

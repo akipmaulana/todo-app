@@ -21,7 +21,7 @@ export class ProjectInsertModal extends Component {
                 <Form style={Style.pim_form}>
                     <FormPrimary title={"Project Name"} placeholder={"Ex. Watch a movies"}/>
                 </Form>
-                <ButtonPrimary text={"SAVE"} />
+                <ButtonPrimary text={"SAVE"} marginBottom={16} />
             </View>
         );
     }

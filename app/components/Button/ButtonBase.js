@@ -10,6 +10,8 @@ export const ButtonBase = ({
     height = Dimen.button.height,
     marginLeft = Dimen.button.margin,
     marginRight = Dimen.button.margin,
+    marginTop = 0,
+    marginBottom = 0,
     borderRadius = Dimen.button.borderRadius,
     borderColor = Color.amber,
     ...props,
@@ -24,6 +26,8 @@ export const ButtonBase = ({
         height,
         marginLeft,
         marginRight,
+        marginBottom,
+        marginTop,
         borderRadius,
         borderColor,
     }

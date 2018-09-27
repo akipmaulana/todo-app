@@ -20,9 +20,9 @@ export default class ProjectScreen extends Component {
               <ProjectCell text={ 'Meeting' }/>
               <ProjectCell text={ 'Hiking' }/>
               <ProjectCell text={ 'Shopping' }/>
+              <ProjectInsertModal />
             </Content>
             <ButtonFab icon={"add"}/>
-            <ProjectInsertModal />
           </Container>
         );
     }
