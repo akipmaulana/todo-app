@@ -1,35 +1,43 @@
-import React, { PropTypes } from 'react'
-import { Button, Text } from 'native-base';
-import { Color, Font, Dimen } from "config";
-import { TextLarge } from "components/Text";
+import React from 'react'
+import { Item, Label, Input } from 'native-base'
+import { Color, Font, Dimen } from "config"
 
 export const FormBase = ({
-    color = Color.amber,
-    fontFamily = Font.family.bold,
-    width = Dimen.full_width - Dimen.button.margin * 2,
-    height = Dimen.button.height,
-    marginLeft = Dimen.button.margin,
-    marginRight = Dimen.button.margin,
-    borderRadius = Dimen.button.borderRadius,
-    borderColor = Color.amber,
+    marginLeft = 0,
+    labelFontFamily = Font.family.light,
+    labelFontSize = Font.size.regular,
+    labelColor = Color.dark_grey1,
+    inputFontFamily = Font.family.regular,
+    inputFontSize = Font.size.regular,
+    inputColor = Color.dark_grey2,
+    inputPlaceholderColor = Color.light_grey3,
     ...props,
 }) => {
-    const { text } = props;
-    const sx = {
-        alignSelf: 'center',
-        justifyContent: 'center',
-        alignItems: 'center',
-        color,
-        width,
-        height,
+    const { title, placeholder } = props;
+
+    const defaultStyleItem = {
         marginLeft,
-        marginRight,
-        borderRadius,
-        borderColor,
     }
+
+    const defaultStyleLabel = {
+        fontFamily: labelFontFamily,
+        fontSize: labelFontSize,
+        color: labelColor,
+    }
+
+    const defaultStyleInput = {
+        fontFamily: inputFontFamily,
+        fontSize: inputFontSize,
+        color: inputColor,
+    }
+
     return (
-        <Button {...props} style={sx}>
-            <TextLarge text={text.toUpperCase()} fontFamily={fontFamily} color={color} flex={0} />
-        </Button>
+        <Item stackedLabel {...props} style={defaultStyleItem}>
+            <Label style={defaultStyleLabel}>{title}</Label>
+            <Input 
+                placeholder={placeholder} 
+                style={defaultStyleInput} 
+                placeholderTextColor={inputPlaceholderColor}/>
+        </Item>
     )
 }

@@ -23,5 +23,10 @@ export const Dimen = {
         margin: 16,
         padding: 8,
         borderRadius: 24,
+    },
+    form: {
+        title: {
+            margin: 16
+        }
     }
 }

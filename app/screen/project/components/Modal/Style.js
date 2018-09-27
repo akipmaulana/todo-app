@@ -24,5 +24,12 @@ export default StyleSheet.create({
     pim_header_text: {
         color: Color.white,
         fontFamily: Font.family.bold,
-    }
+    },
+    pim_form: {
+        flexDirection: 'column',
+        justifyContent: 'center',
+        flex: 1,
+        margin: Dimen.form.title.margin,
+        backgroundColor: Color.light_grey1,
+    },
 })
