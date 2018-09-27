@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { View } from 'native-base';
 import Style from './Style';
 import { TextLarge } from 'components/Text';
+import { FormPrimary } from 'components/Form';
+import { ButtonPrimary } from 'components/Button';
 import Localization, * as LocalizeKey from 'assets/locales';
 
 export class ProjectInsertModal extends Component {
@@ -16,6 +18,8 @@ export class ProjectInsertModal extends Component {
                         color={ Style.pim_header_text.color } 
                         fontFamily={ Style.pim_header_text.fontFamily }/>
                 </View>
+                <FormPrimary text={"FORM"}/>
+                <ButtonPrimary text={"SAVE"} />
             </View>
         );
     }
