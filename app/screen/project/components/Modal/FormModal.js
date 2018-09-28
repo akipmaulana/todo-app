@@ -7,7 +7,7 @@ import { ButtonPrimary } from 'components/Button'
 import Localization, * as LocalizeKey from 'assets/locales'
 import Modal from 'react-native-modal'
 
-export class ProjectInsertModal extends Component {
+export class FormModal extends Component {
 
     state = {
         visibleModal: false

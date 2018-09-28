@@ -2,9 +2,9 @@ import React, {Component} from 'react'
 import {Container, Content} from 'native-base'
 import { NavHeader } from "components/Navigation"
 import { ProjectHeaderView } from "./components/View"
-import { ProjectInsertModal } from './components/Modal'
+import { FormModal } from './components/Modal'
 import { ProjectCell } from "components/Cell"
-import { ButtonFab, ButtonPrimary, ButtonSecondary } from 'components/Button'
+import { ButtonFab } from 'components/Button'
 import { Color } from 'config'
 
 export default class ProjectScreen extends Component {
@@ -24,8 +24,8 @@ export default class ProjectScreen extends Component {
               <ProjectCell text={ 'Hiking' }/>
               <ProjectCell text={ 'Shopping' }/>
             </Content>
-            <ButtonFab icon={"add"} onPress={() => {this.refs.projectInsertModal.setState({visibleModal:true})}}/>
-            <ProjectInsertModal ref='projectInsertModal' />
+            <ButtonFab icon={"add"} onPress={() => {this.refs.formModal.setState({visibleModal:true})}}/>
+            <FormModal ref='formModal' />
           </Container>
         );
     }

@@ -1,1 +1,1 @@
-export {ProjectInsertModal} from "./ProjectInsertModal"
+export {FormModal} from "./FormModal"
