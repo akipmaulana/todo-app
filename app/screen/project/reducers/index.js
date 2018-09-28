@@ -1,3 +1,6 @@
-import ProjectModalReducer from "./ProjectModalReducer"
+import { combineReducers } from 'redux'
+import formModalReducer from "./FormModalReducer"
 
-export {ProjectModalReducer}
+export default combineReducers({
+    formModal: formModalReducer
+})

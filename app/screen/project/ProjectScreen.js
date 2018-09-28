@@ -24,8 +24,8 @@ export default class ProjectScreen extends Component {
               <ProjectCell text={ 'Hiking' }/>
               <ProjectCell text={ 'Shopping' }/>
             </Content>
-            <ButtonFab icon={"add"} onPress={() => {}}/>
-            <ProjectInsertModal />
+            <ButtonFab icon={"add"} onPress={() => {this.refs.projectInsertModal.setState({visibleModal:true})}}/>
+            <ProjectInsertModal ref='projectInsertModal' />
           </Container>
         );
     }

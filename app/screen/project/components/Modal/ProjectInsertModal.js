@@ -10,7 +10,7 @@ import Modal from 'react-native-modal'
 export class ProjectInsertModal extends Component {
 
     state = {
-        visibleModal: true
+        visibleModal: false
     }
 
     render() {

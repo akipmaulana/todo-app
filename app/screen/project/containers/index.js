@@ -1,3 +1,3 @@
-import ProjectModalContainer from "./ProjectModalContainer"
+import formModalContainer from "./FormModalContainer"
 
-export {ProjectModalContainer}
+export {formModalContainer}
