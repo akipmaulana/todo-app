@@ -8,6 +8,9 @@ import { ButtonFab, ButtonPrimary, ButtonSecondary } from 'components/Button'
 import { Color } from 'config'
 
 export default class ProjectScreen extends Component {
+
+    
+
     render() {
         return (
           <Container style={{backgroundColor: Color.light_grey1}}>
@@ -20,9 +23,9 @@ export default class ProjectScreen extends Component {
               <ProjectCell text={ 'Meeting' }/>
               <ProjectCell text={ 'Hiking' }/>
               <ProjectCell text={ 'Shopping' }/>
-              <ProjectInsertModal />
             </Content>
-            <ButtonFab icon={"add"}/>
+            <ButtonFab icon={"add"} onPress={() => {}}/>
+            <ProjectInsertModal />
           </Container>
         );
     }

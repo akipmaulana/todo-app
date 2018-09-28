@@ -4,6 +4,10 @@ import { Color, Dimen, Font } from "config";
 const borderRadius = 16
 
 export default StyleSheet.create({
+    pim_modal: {
+        justifyContent: "flex-end",
+        margin: 0
+    },
     pim_background_view: {
         backgroundColor: Color.white,
         flexDirection: 'column',
