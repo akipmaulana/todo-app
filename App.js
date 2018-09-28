@@ -8,7 +8,7 @@
 
 import React, {Component} from 'react';
 import RNSplashScreen from 'react-native-splash-screen';
-import AppNavigator from './AppNavigator'
+import MainNavigation from './app/navigation/navigators/MainNavigation'
 
 export default class App extends Component {
 
@@ -17,6 +17,6 @@ export default class App extends Component {
   }
 
   render() {
-    return <AppNavigator/>;
+    return <MainNavigation/>;
   }
 }
