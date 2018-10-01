@@ -9,6 +9,8 @@
 import React, {Component} from 'react';
 import RNSplashScreen from 'react-native-splash-screen';
 import MainNavigation from './app/navigation/navigators/MainNavigation'
+import { Provider } from 'react-redux';
+import store from './app/AppStore'
 
 export default class App extends Component {
 
@@ -17,6 +19,11 @@ export default class App extends Component {
   }
 
   render() {
-    return <MainNavigation/>;
+    return (
+        <Provider store={store}>
+            <MainNavigation/>
+        </Provider>
+    );
+    
   }
 }
