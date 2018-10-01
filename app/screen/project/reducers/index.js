@@ -1,6 +1,3 @@
-import { combineReducers } from 'redux'
-import formModalReducer from "./FormModalReducer"
+export {formModalReducer} from "./ProjectListReducer"
 
-export default combineReducers({
-    formModal: formModalReducer
-})
+export {formModalContainer}
