@@ -3,8 +3,8 @@ import {Card, CardItem, Text, Body, Badge, View, Right} from 'native-base';
 import { FlatList } from 'react-native';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
-import * as actions from './actions';
-import * as selectors from './selectors';
+import * as action from './action';
+import * as selector from './selector';
 import Style from "./style";
 
 const ProjectCell = props => {
@@ -31,7 +31,7 @@ const ProjectCellContainer = props => {
 
     return (
         <FlatList
-            data={this.props.projects}
+            data={props.projects}
             renderItem={item => <ProjectCell data={item} />}
             keyExtractor={this._keyExtractor}
         />
@@ -40,7 +40,11 @@ const ProjectCellContainer = props => {
 
 const mapStateToProps = () =>
     createStructuredSelector({
-        projects: selectors.getProjectFetchFulfilled()
+        projects: selector.getProjectFetchFulfilled()
     });
 
-export default connect(mapStateToProps, actions)(ProjectCellContainer);
+// const mapStateToProps = (state) => ({
+//     projects: state.projects
+// })
+
+export default connect(mapStateToProps, action)(ProjectCellContainer);
