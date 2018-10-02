@@ -17,8 +17,12 @@ export const fetchProjectsEpic = action$ =>
     action$.pipe(
         ofType(FETCH_PROJECT),
         mergeMap(action =>
-            ajax
-                .getJSON(ApiConstants.PROJECT_URL)
-                .map(response => fetchProjectFulfilled(response))
+            ajax({
+                url: ApiConstants.PROJECT_URL,
+                method: 'GET',
+                headers: {
+                    'Authorization': ApiConstants.AUTH
+                }
+            }).map(ajaxResponse => fetchProjectFulfilled(ajaxResponse.response))
         )
     );

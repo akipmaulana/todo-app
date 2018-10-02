@@ -14,7 +14,7 @@ export default class ProjectScreen extends Component {
           <Container style={{backgroundColor: Color.light_grey1}}>
             <NavHeader text={ 'PROJECTS' } />
             <ProjectHeaderView amount_project={ 9 } />
-            <ProjectCellContainer />
+            <ProjectCellContainer ref='projectContainer'/>
             <ButtonFab icon={"add"} onPress={() => {this.refs.formModal.setState({visibleModal:true})}}/>
             <FormModal ref='formModal' />
           </Container>
