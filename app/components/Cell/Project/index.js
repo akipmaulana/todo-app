@@ -30,11 +30,11 @@ class ProjectCellContainer extends Component {
     componentDidMount() {
         this.props.fetchProjects()
     }
-    
+
     render() {
         return (
             <FlatList
-                data={JSON.stringify(this.props.projects)}
+                data={this.props.projects}
                 renderItem={item => <ProjectCell data={item} />}
                 keyExtractor={item => String(item.id)}
             />
