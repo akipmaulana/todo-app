@@ -18,7 +18,7 @@ const ProjectCell = props => {
                     <View style={Style.badge_cell}/>
                     <Text style={Style.flag_last_update}>Last Update</Text>
                     <Text style={Style.time_text}>20.00 PM</Text>
-                    <Text style={Style.project_name_text}>{ data.name }</Text>
+                    <Text style={Style.project_name_text}>{ data.item.name }</Text>
                 </Body>
             </CardItem>
         </Card>
@@ -34,21 +34,17 @@ class ProjectCellContainer extends Component {
     render() {
         return (
             <FlatList
-                data={this.props.projects}
+                data={JSON.stringify(this.props.projects)}
                 renderItem={item => <ProjectCell data={item} />}
-                keyExtractor={item => item.id}
+                keyExtractor={item => String(item.id)}
             />
         );
     }
 }
 
-const mapStateToProps = () =>
+const mapStateToProps = (state, props) =>
     createStructuredSelector({
-        projects: selector.getProjectFetchFulfilled()
+        projects: selector.getProjectFetchFulfilled(state, props)
     });
-
-// const mapStateToProps = (state) => ({
-//     projects: state.projects
-// })
 
 export default connect(mapStateToProps, action)(ProjectCellContainer);

@@ -1,6 +1,11 @@
 import { createSelector } from 'reselect';
 
-export const selectPingReducer = () => state => state.get('projectScreen');
+const selectProject = (state, props) => state.get('projectScreen');
 
 export const getProjectFetchFulfilled = () =>
-    createSelector(selectPingReducer(), state => []);
+    createSelector(
+        selectProject, 
+        state => {
+            return state ? state.get('projects') : []
+        }
+    );
