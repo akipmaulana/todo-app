@@ -1,10 +1,17 @@
-import { VisibilityFormModal } from '../actions'
+import { fromJS } from 'immutable';
+import { Constants } from 'config';
 
-export default formModalReducer = (state = VisibilityFormModal.HIDE, action) => {
+const initialState = fromJS({
+  toogleVisible: false,
+});
+
+function toogleProjectFormReducer(state = initialState, action) {
   switch (action.type) {
-    case VisibilityFormModal.SHOW: 
-      return action.visibility
-    default:
-      return state
+      case Constants.TOOGLE_PROJECT_FORM:
+          return state.set('toogleVisible', action.payload);
+      default:
+          return state;
   }
-};
+}
+
+export default toogleProjectFormReducer

@@ -6,7 +6,7 @@ const initialState = fromJS({
     projects: []
 });
 
-function pingReducer(state = initialState, action) {
+function projectReducer(state = initialState, action) {
     switch (action.type) {
         case Constants.FETCH_PROJECT_FULFILLED:
             return state.set('projects', action.payload);
@@ -16,4 +16,4 @@ function pingReducer(state = initialState, action) {
     }
 }
 
-export default pingReducer;
+export default projectReducer;

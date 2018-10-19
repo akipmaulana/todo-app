@@ -1,7 +1,9 @@
 import { combineReducers } from 'redux-immutable';
 
-import projectScreenReducer from './components/Cell/Project/reducer'
+import projectReducer from './components/Cell/Project/reducer'
+import toogleProjectFormReducer from "./screen/project/reducer";
 
 export default combineReducers({
-    projectScreen: projectScreenReducer 
+    projectScreen: projectReducer,
+    projectScreenToogleForm: toogleProjectFormReducer
 });
