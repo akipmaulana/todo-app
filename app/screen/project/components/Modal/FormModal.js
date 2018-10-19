@@ -13,6 +13,10 @@ export class FormModal extends Component {
         visibleModal: false
     }
 
+    _buttonSaveClickHandler = () => {
+        this.setState({visibleModal: false})
+    }
+
     render() {
         return (
             <Modal isVisible={this.state.visibleModal} style={Style.pim_modal} >
@@ -27,7 +31,7 @@ export class FormModal extends Component {
                     <Form style={Style.pim_form}>
                         <FormPrimary title={"Project Name"} placeholder={"Ex. Watch a movies"}/>
                     </Form>
-                    <ButtonPrimary text={"SAVE"} marginBottom={16} onPress={() => {this.setState({visibleModal: false})}} />
+                    <ButtonPrimary text={"SAVE"} marginBottom={16} onPress={this._buttonSaveClickHandler} />
                 </View>
             </Modal>
         );
