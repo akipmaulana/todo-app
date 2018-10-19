@@ -1,5 +1,5 @@
 import { fromJS } from 'immutable';
-import { FETCH_PROJECT, FETCH_PROJECT_FULFILLED } from './types';
+import { Constants } from 'config';
 
 const initialState = fromJS({
     isPinging: false,
@@ -8,7 +8,7 @@ const initialState = fromJS({
 
 function pingReducer(state = initialState, action) {
     switch (action.type) {
-        case FETCH_PROJECT_FULFILLED:
+        case Constants.FETCH_PROJECT_FULFILLED:
             return state.set('projects', action.payload);
 
         default:

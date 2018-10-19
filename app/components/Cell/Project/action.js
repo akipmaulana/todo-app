@@ -3,19 +3,18 @@ import { delay, mapTo, mergeMap } from 'rxjs/operators';
 import 'rxjs/add/operator/map';
 import { ajax } from 'rxjs/observable/dom/ajax';
 import { ApiConstants } from 'api'
+import { Constants } from 'config';
 
-import { FETCH_PROJECT, FETCH_PROJECT_FULFILLED } from './types';
-
-export const fetchProjects = () => ({ type: FETCH_PROJECT });
+export const fetchProjects = () => ({ type: Constants.FETCH_PROJECT });
 
 export const fetchProjectFulfilled = payload => ({
-    type: FETCH_PROJECT_FULFILLED,
+    type: Constants.FETCH_PROJECT_FULFILLED,
     payload
 });
 
 export const fetchProjectsEpic = action$ =>
     action$.pipe(
-        ofType(FETCH_PROJECT),
+        ofType(Constants.FETCH_PROJECT),
         mergeMap(action =>
             ajax({
                 url: ApiConstants.PROJECT_URL,

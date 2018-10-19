@@ -1,8 +1,8 @@
 import React, {Component} from 'react'
 import {Container, Content} from 'native-base'
 import { NavHeader } from "components/Navigation"
-import { ProjectHeaderView } from "./components/View"
-import { FormModal } from './components/Modal'
+import { ProjectHeaderView } from "components/View"
+import { FormModal } from 'components/Modal'
 import ProjectCellContainer from "components/Cell/Project"
 import { ButtonFab } from 'components/Button'
 import { Color } from 'config'
