@@ -1,3 +1,2 @@
-import BaseView from "./BaseView";
-
-export {BaseView};
+export { BaseView } from "./BaseView"
+export { ProjectHeaderView } from "./ProjectHeaderView"
