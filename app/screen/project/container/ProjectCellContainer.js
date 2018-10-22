@@ -2,8 +2,8 @@ import React, { Component } from 'react'
 import { FlatList } from 'react-native';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
-import * as action from './action';
-import * as selector from './selector';
+import * as action from 'myredux/action';
+import * as selector from 'myredux/selector';
 import { ProjectCell } from 'components/Cell'
 
 class ProjectCellContainer extends Component {
