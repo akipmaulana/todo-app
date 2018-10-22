@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import {Container, Content} from 'native-base'
 import { NavHeader } from "components/Navigation"
 import { ProjectHeaderView } from "components/View"
-import { FormModal } from 'components/Modal'
+import { ProjectFormModal } from 'components/Modal'
 import ProjectCellContainer from "components/Cell/Project"
 import { ButtonFab } from 'components/Button'
 import { Color } from 'config'
@@ -16,7 +16,7 @@ export default class ProjectScreen extends Component {
             <ProjectHeaderView amount_project={ 9 } />
             <ProjectCellContainer ref='projectContainer'/>
             <ButtonFab icon={"add"} onPress={() => {this.refs.formModal.setState({visibleModal:true})}}/>
-            <FormModal ref='formModal' />
+            <ProjectFormModal ref='formModal' />
           </Container>
         );
     }

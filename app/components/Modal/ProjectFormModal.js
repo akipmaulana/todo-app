@@ -35,7 +35,7 @@ const ProjectForm = (props) => (
     />
 );
 
-export class FormModal extends Component {
+export class ProjectFormModal extends Component {
 
     state = {
         visibleModal: false
