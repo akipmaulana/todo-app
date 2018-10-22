@@ -3,6 +3,11 @@ import { Item, Label, Input } from 'native-base'
 import { Color, Font, Dimen } from "config"
 
 export const FormBase = ({
+    field: {
+        name,
+        value,
+        onChange,
+    },
     marginLeft = 0,
     labelFontFamily = Font.family.light,
     labelFontSize = Font.size.regular,
@@ -35,6 +40,8 @@ export const FormBase = ({
         <Item stackedLabel {...props} style={defaultStyleItem}>
             <Label style={defaultStyleLabel}>{title}</Label>
             <Input 
+                onChangeText={onChange(name)}
+                value={value}
                 placeholder={placeholder} 
                 style={defaultStyleInput} 
                 placeholderTextColor={inputPlaceholderColor}/>
