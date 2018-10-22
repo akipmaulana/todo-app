@@ -1,5 +1,5 @@
 import { ofType } from 'redux-observable';
-import { delay, mapTo, mergeMap } from 'rxjs/operators';
+import { mergeMap } from 'rxjs/operators';
 import 'rxjs/add/operator/map';
 import { ajax } from 'rxjs/observable/dom/ajax';
 import { ApiConstants } from 'api'
@@ -15,7 +15,7 @@ export const fetchProjectFulfilled = payload => ({
 export const fetchProjectsEpic = action$ =>
     action$.pipe(
         ofType(Constants.FETCH_PROJECT),
-        mergeMap(action =>
+        mergeMap( action =>
             ajax({
                 url: ApiConstants.PROJECT_URL,
                 method: 'GET',

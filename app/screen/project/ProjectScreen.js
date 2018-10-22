@@ -3,9 +3,9 @@ import { Container } from 'native-base'
 import { NavHeader } from "components/Navigation"
 import { ProjectHeaderView } from "components/View"
 import { ProjectFormModal } from 'components/Modal'
-import ProjectCellContainer from "components/Cell/Project"
 import { ButtonFab } from 'components/Button'
 import { Color } from 'config'
+import ProjectCellContainer from "./container/ProjectCellContainer"
 
 export default class ProjectScreen extends Component {
 
