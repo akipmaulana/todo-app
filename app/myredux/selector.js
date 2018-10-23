@@ -19,3 +19,11 @@ export const isRequesting = () =>
             return state.get('isRequesting')
         }
     );
+
+export const isVisibleModal = () =>
+    createSelector(
+        selectProjectScreen, 
+        state => {
+            return state.get('isVisibleModal')
+        }
+    );

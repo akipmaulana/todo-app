@@ -6,11 +6,13 @@ import { ProjectFormModal } from 'components/Modal'
 import { ButtonFab } from 'components/Button'
 import { Color } from 'config'
 import ProjectCellContainer from "./container/ProjectCellContainer"
+import { connect } from 'react-redux';
+import * as action from 'myredux/action';
 
-export default class ProjectScreen extends Component {
+class ProjectScreen extends Component {
 
     buttonAddClickHandler = () => {
-      this.refs.formModal.setState({visibleModal:true})
+        this.props.toogleProjectFormModal(true)
     }
 
     render() {
@@ -19,9 +21,11 @@ export default class ProjectScreen extends Component {
             <NavHeader text={ 'PROJECTS' } />
             <ProjectHeaderView amount_project={ 9 } />
             <ProjectCellContainer ref='projectContainer'/>
-            <ButtonFab icon={"add"} onPress={this.buttonAddClickHandler}/>
-            <ProjectFormModal ref='formModal' />
+            <ButtonFab icon={"add"} onPress={this.buttonAddClickHandler.bind(this)}/>
+            <ProjectFormModal/>
           </Container>
         );
     }
 }
+
+export default connect(null, action)(ProjectScreen);

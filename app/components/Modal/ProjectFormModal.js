@@ -7,6 +7,10 @@ import { ButtonPrimary } from 'components/Button'
 import Localization, * as LocalizeKey from 'assets/locales'
 import Modal from 'react-native-modal'
 import { Field, Formik } from 'formik';
+import { connect } from 'react-redux';
+import { createStructuredSelector } from 'reselect';
+import * as action from 'myredux/action';
+import * as selector from 'myredux/selector';
 
 const ProjectForm = (props) => (
     <Formik
@@ -14,6 +18,7 @@ const ProjectForm = (props) => (
         onSubmit={({ projectName }) => {
             console.log(`projectName: ${projectName}`)
             props.hideFormModal()
+            props.addProjectsEpic()
         }}
         render={({
             handleSubmit,
@@ -35,25 +40,31 @@ const ProjectForm = (props) => (
     />
 );
 
-export class ProjectFormModal extends Component {
-
-    state = {
-        visibleModal: false
-    }
+class ProjectFormModal extends Component {
 
     hideFormModal = () => {
-        this.setState({visibleModal: false})
+        this.props.toogleProjectFormModal(false)
     }
 
     render() {
         return (
             <Modal 
                 style={Style.pim_modal} 
-                isVisible={this.state.visibleModal} 
-                onBackdropPress={() => this.setState({ visibleModal: false })}
+                isVisible={this.props.isVisibleModal} 
+                onBackdropPress={this.hideFormModal.bind(this)}
             >
-                <ProjectForm hideFormModal={this.hideFormModal} />
+                <ProjectForm 
+                    hideFormModal={this.hideFormModal.bind(this)} 
+                    addProjectsEpic={this.props.addProjectsEpic} 
+                />
             </Modal>
         );
     }
 }
+
+const mapStateToProps = (state, props) =>
+    createStructuredSelector({
+        isVisibleModal: selector.isVisibleModal(state, props)
+    });
+
+export default connect(mapStateToProps, action)(ProjectFormModal);

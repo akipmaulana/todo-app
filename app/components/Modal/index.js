@@ -1,1 +1,3 @@
-export {ProjectFormModal} from "./ProjectFormModal"
+import ProjectFormModal from "./ProjectFormModal"
+
+export { ProjectFormModal }
