@@ -3,7 +3,7 @@ import { View, Form } from 'native-base';
 import Style from './Style';
 import { TextLarge } from 'components/Text'
 import { FormPrimary } from 'components/Form'
-import { ButtonPrimary } from 'components/Button'
+import { ButtonPrimary, ButtonDelete } from 'components/Button'
 import Localization, * as LocalizeKey from 'assets/locales'
 import Modal from 'react-native-modal'
 import { Field, Formik } from 'formik';
@@ -35,6 +35,7 @@ const ProjectForm = (props) => (
                     <Field name="projectName" component={FormPrimary} title={"Project Name"} placeholder={"Ex. Watch a movies"}/>
                 </Form>
                 <ButtonPrimary text={ props.form.action } marginBottom={16} onPress={handleSubmit} />
+                <ButtonDelete  />
             </View>
         )}
     />

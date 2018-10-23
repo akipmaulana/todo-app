@@ -34,4 +34,8 @@ export default StyleSheet.create({
         height: 24,
         marginRight: 0,
     },
+    button_delete: {
+        color: Color.red,
+        fontFamily: Font.family.regular
+    }
 })
