@@ -14,13 +14,16 @@ export const ButtonBase = ({
     marginBottom = 0,
     borderRadius = Dimen.button.borderRadius,
     borderColor = Color.amber,
+    alignSelf = 'center',
+    justifyContent = 'center',
+    alignItems = 'center',
     ...props,
 }) => {
     const { text } = props;
     const sx = {
-        alignSelf: 'center',
-        justifyContent: 'center',
-        alignItems: 'center',
+        alignSelf,
+        justifyContent,
+        alignItems,
         color,
         width,
         height,
@@ -30,6 +33,7 @@ export const ButtonBase = ({
         marginTop,
         borderRadius,
         borderColor,
+        ...props,
     }
     return (
         <Button {...props} style={sx}>

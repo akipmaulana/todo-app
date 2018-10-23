@@ -27,5 +27,11 @@ export default StyleSheet.create({
         color: Color.white,
         fontSize: 32,
         alignSelf: 'center',
-    }
+    },
+    button_close_project: {
+        color: Color.light_grey4,
+        width: 48,
+        height: 24,
+        marginRight: 0,
+    },
 })

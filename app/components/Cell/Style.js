@@ -35,5 +35,10 @@ export default StyleSheet.create({
         alignSelf: 'flex-end',
         position: 'absolute', 
         zIndex: 1
+    },
+    button_close: {
+        alignSelf: 'flex-end',
+        position: 'absolute', 
+        zIndex: 1
     }
 })
