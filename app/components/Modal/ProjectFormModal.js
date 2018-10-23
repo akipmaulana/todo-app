@@ -18,7 +18,7 @@ const ProjectForm = (props) => (
         onSubmit={({ projectName }) => {
             console.log(`projectName: ${projectName}`)
             props.hideFormModal()
-            props.addProjectsEpic()
+            props.addProject()
         }}
         render={({
             handleSubmit,
@@ -54,8 +54,8 @@ class ProjectFormModal extends Component {
                 onBackdropPress={this.hideFormModal.bind(this)}
             >
                 <ProjectForm 
-                    hideFormModal={this.hideFormModal.bind(this)} 
-                    addProjectsEpic={this.props.addProjectsEpic} 
+                    hideFormModal={ this.hideFormModal.bind(this) } 
+                    addProject={ () => this.props.addProject()} 
                 />
             </Modal>
         );

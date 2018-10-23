@@ -17,6 +17,8 @@ export const fetchProjectFulfilled = payload => ({
     payload
 });
 
+export const addProject = (payload) => ({ type: Constants.ADD_PROJECT, payload });
+
 export const fetchProjectsEpic = action$ =>
     action$.pipe(
         ofType(Constants.FETCH_PROJECT),

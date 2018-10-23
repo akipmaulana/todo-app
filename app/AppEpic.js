@@ -1,5 +1,5 @@
 import { combineEpics } from 'redux-observable';
 
-import { fetchProjectsEpic } from 'myredux/action';
+import { fetchProjectsEpic, addProjectsEpic } from 'myredux/action';
 
-export default combineEpics(fetchProjectsEpic);
+export default combineEpics(fetchProjectsEpic, addProjectsEpic);
