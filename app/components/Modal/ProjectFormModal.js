@@ -18,7 +18,7 @@ const ProjectForm = (props) => (
         onSubmit={({ projectName }) => {
             console.log(`projectName: ${projectName}`)
             props.hideFormModal()
-            props.addProject()
+            props.addProject(projectName)
         }}
         render={({
             handleSubmit,
@@ -55,7 +55,7 @@ class ProjectFormModal extends Component {
             >
                 <ProjectForm 
                     hideFormModal={ this.hideFormModal.bind(this) } 
-                    addProject={ () => this.props.addProject()} 
+                    addProject={ (name) => this.props.addProject(name)} 
                 />
             </Modal>
         );

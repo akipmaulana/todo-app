@@ -17,7 +17,7 @@ export const fetchProjectFulfilled = payload => ({
     payload
 });
 
-export const addProject = (payload) => ({ type: Constants.ADD_PROJECT, payload });
+export const addProject = (name) => ({ type: Constants.ADD_PROJECT, name });
 
 export const fetchProjectsEpic = action$ =>
     action$.pipe(
@@ -42,10 +42,10 @@ export const addProjectsEpic = action$ =>
                 method: 'POST',
                 headers: {
                     'Authorization': ApiConstants.AUTH,
-                    'X-Request-Id': 'C1A32AED82B2AED1'
+                    //'X-Request-Id': 'C1A32AED82B2AED1'
                 },
                 body: {
-                    name: "This Is Spartan"
+                    name: action.name
                 }
             }).map(ajaxResponse => fetchProjects())
         )
