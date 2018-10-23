@@ -47,7 +47,11 @@ export class ProjectFormModal extends Component {
 
     render() {
         return (
-            <Modal isVisible={this.state.visibleModal} style={Style.pim_modal} >
+            <Modal 
+                style={Style.pim_modal} 
+                isVisible={this.state.visibleModal} 
+                onBackdropPress={() => this.setState({ visibleModal: false })}
+            >
                 <ProjectForm hideFormModal={this.hideFormModal} />
             </Modal>
         );
