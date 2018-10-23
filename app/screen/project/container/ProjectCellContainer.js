@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
-import { FlatList, ActivityIndicator, View } from 'react-native';
+import { FlatList } from 'react-native';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 import * as action from 'myredux/action';
 import * as selector from 'myredux/selector';
-import { ProjectCell } from 'components/Cell'
+import { ProjectCell, FooterCell } from 'components/Cell'
 
 class ProjectCellContainer extends Component {
 
@@ -16,26 +16,16 @@ class ProjectCellContainer extends Component {
         this.props.fetchProjects()
     }
 
-    renderFooter() {
-        const footer = (
-            <View
-                style={{
-                    paddingVertical: 16,
-                }}
-            >
-                <ActivityIndicator animating size="large" />
-            </View>
-        )
-        return this.props.isRequesting ? footer : null
-    }
-
     render() {
         return (
             <FlatList
                 data={this.props.projects}
                 renderItem={item => <ProjectCell data={item} />}
                 keyExtractor={item => String(item.id)}
-                ListFooterComponent={this.renderFooter.bind(this)}
+                ListFooterComponent={
+                    <FooterCell isRequesting={this.props.isRequesting} 
+                        numberOfRow={this.props.projects.length} />
+                }
             />
         );
     }
