@@ -9,6 +9,7 @@ export default StyleSheet.create({
     },
     project_header_view: {
         padding: 16,
+        marginBottom: 8,
         backgroundColor: Color.white,
         justifyContent: 'center',
         alignItems: 'center',

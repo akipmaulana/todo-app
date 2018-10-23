@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { FlatList } from 'react-native';
+import { FlatList, ActivityIndicator, View } from 'react-native';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 import * as action from 'myredux/action';
@@ -8,8 +8,25 @@ import { ProjectCell } from 'components/Cell'
 
 class ProjectCellContainer extends Component {
 
+    constructor(props) {
+        super(props);
+    }
+
     componentDidMount() {
         this.props.fetchProjects()
+    }
+
+    renderFooter() {
+        const footer = (
+            <View
+                style={{
+                    paddingVertical: 16,
+                }}
+            >
+                <ActivityIndicator animating size="large" />
+            </View>
+        )
+        return this.props.isRequesting ? footer : null
     }
 
     render() {
@@ -18,6 +35,7 @@ class ProjectCellContainer extends Component {
                 data={this.props.projects}
                 renderItem={item => <ProjectCell data={item} />}
                 keyExtractor={item => String(item.id)}
+                ListFooterComponent={this.renderFooter.bind(this)}
             />
         );
     }
@@ -25,6 +43,7 @@ class ProjectCellContainer extends Component {
 
 const mapStateToProps = (state, props) =>
     createStructuredSelector({
+        isRequesting: selector.isRequesting(state, props),
         projects: selector.getProjectFetchFulfilled(state, props)
     });
 
