@@ -1,7 +1,7 @@
 import logger from 'redux-logger';
 import { createStore, applyMiddleware } from 'redux';
 import { createEpicMiddleware } from 'redux-observable';
-import { composeWithDevTools } from "remote-redux-devtools";
+import { composeWithDevTools } from "redux-devtools-extension";
 import rootReducer from './AppReducer';
 import rootEpic from './AppEpic';
 

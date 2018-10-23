@@ -16,11 +16,13 @@
     "react-native-easy-grid": "^0.2.0",
     "react-native-i18n": "^2.0.15",
     "react-native-modal": "^6.5.0",
+    "react-native-requests-logger": "^1.1.5",
     "react-native-splash-screen": "^3.1.1",
     "react-native-vector-icons": "^5.0.0",
     "react-navigation": "^2.14.2",
     "react-redux": "^5.0.7",
     "redux": "^4.0.0",
+    "redux-devtools-extension": "^2.13.5",
     "redux-immutable": "^4.0.0",
     "redux-logger": "^3.0.6",
     "redux-observable": "^0.17.0",
@@ -31,8 +33,7 @@
     "babel-jest": "23.6.0",
     "babel-preset-react-native": "^5",
     "jest": "23.6.0",
-    "react-test-renderer": "16.4.1",
-    "remote-redux-devtools": "^0.5.13"
+    "react-test-renderer": "16.4.1"
   },
   "jest": {
     "preset": "react-native"
