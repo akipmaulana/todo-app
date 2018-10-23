@@ -63,6 +63,7 @@ export const updateProjectsEpic = action$ =>
                 method: 'POST',
                 headers: {
                     'Authorization': ApiConstants.AUTH,
+                    'Content-Type': 'application/json',
                     //'X-Request-Id': 'C1A32AED82B2AED1'
                 },
                 body: {
