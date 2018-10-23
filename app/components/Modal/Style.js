@@ -12,7 +12,6 @@ export default StyleSheet.create({
         backgroundColor: Color.white,
         flexDirection: 'column',
         width: Dimen.full_width,
-        height: 300,
         borderTopLeftRadius: borderRadius,
         borderTopRightRadius: borderRadius,
     },

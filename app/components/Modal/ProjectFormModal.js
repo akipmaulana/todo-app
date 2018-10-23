@@ -23,7 +23,7 @@ const ProjectForm = (props) => (
         render={({
             handleSubmit,
         }) => (
-            <View style={Style.pim_background_view} >
+            <View style={{...Style.pim_background_view, height: props.isSelectedProject ? 300 : 256}} >
                 <View style={Style.pim_header_view}>
                     <TextLarge 
                         flex={0}
@@ -35,7 +35,9 @@ const ProjectForm = (props) => (
                     <Field name="projectName" component={FormPrimary} title={"Project Name"} placeholder={"Ex. Watch a movies"}/>
                 </Form>
                 <ButtonPrimary text={ props.form.action } marginBottom={16} onPress={handleSubmit} />
-                <ButtonDelete  />
+                {
+                    props.isSelectedProject ? <ButtonDelete  /> : null
+                }
             </View>
         )}
     />
@@ -67,6 +69,7 @@ class ProjectFormModal extends Component {
                 <ProjectForm 
                     hideFormModal={ this.hideFormModal.bind(this) } 
                     form={ form }
+                    isSelectedProject={ isSelectedProject }
                     selectedProject={ selectedProject } 
                 />
             </Modal>
