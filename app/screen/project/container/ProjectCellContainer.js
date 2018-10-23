@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { FlatList } from 'react-native';
+import { FlatList, TouchableOpacity } from 'react-native';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 import * as action from 'myredux/action';
@@ -20,7 +20,11 @@ class ProjectCellContainer extends Component {
         return (
             <FlatList
                 data={this.props.projects}
-                renderItem={item => <ProjectCell data={item} />}
+                renderItem={ item =>
+                    <TouchableOpacity onPress={ () => { this.props.toogleProjectFormModal(true) } }>
+                        <ProjectCell data={item} />
+                    </TouchableOpacity>
+                }
                 keyExtractor={item => String(item.id)}
                 ListFooterComponent={
                     <FooterCell isRequesting={this.props.isRequesting} 
