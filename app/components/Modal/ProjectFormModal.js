@@ -50,11 +50,12 @@ class ProjectFormModal extends Component {
     }
 
     render() {
+        const item = this.props.selectedProject || {}
         const isSelectedProject = !GeneralHelper.isEmpty(this.props.selectedProject)
         const form = {
             title: isSelectedProject ? Localization.t(LocalizeKey.UPDATE_PROJECT) : Localization.t(LocalizeKey.CREATE_NEW_PROJECT),
             action: isSelectedProject ? Localization.t(LocalizeKey.UPDATE) : Localization.t(LocalizeKey.SAVE),
-            handler: (name) => isSelectedProject ? this.props.updateProject(name) : this.props.addProject(name)
+            handler: (name) => isSelectedProject ? this.props.updateProject(item.id, name) : this.props.addProject(name)
         } 
         const selectedProject = {
             id: isSelectedProject ? this.props.selectedProject.id : 0,
