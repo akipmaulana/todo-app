@@ -12,7 +12,7 @@ import * as action from 'myredux/action';
 class ProjectScreen extends Component {
 
     buttonAddClickHandler = () => {
-        this.props.toogleProjectFormModal(true)
+        this.props.toogleProjectFormModal(true, {})
     }
 
     render() {

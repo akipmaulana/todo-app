@@ -11,14 +11,14 @@ import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 import * as action from 'myredux/action';
 import * as selector from 'myredux/selector';
+import { GeneralHelper } from 'helper'
 
 const ProjectForm = (props) => (
     <Formik
-        initialValues={{ projectName: '' }}
+        initialValues={{ projectName: props.selectedProject.name || '' }}
         onSubmit={({ projectName }) => {
-            console.log(`projectName: ${projectName}`)
             props.hideFormModal()
-            props.addProject(projectName)
+            props.form.handler(projectName)
         }}
         render={({
             handleSubmit,
@@ -27,14 +27,14 @@ const ProjectForm = (props) => (
                 <View style={Style.pim_header_view}>
                     <TextLarge 
                         flex={0}
-                        text={ Localization.t(LocalizeKey.CREATE_NEW_PROJECT) } 
+                        text={ props.form.title } 
                         color={ Style.pim_header_text.color } 
                         fontFamily={ Style.pim_header_text.fontFamily }/>
                 </View>
                 <Form style={Style.pim_form}>
                     <Field name="projectName" component={FormPrimary} title={"Project Name"} placeholder={"Ex. Watch a movies"}/>
                 </Form>
-                <ButtonPrimary text={"SAVE"} marginBottom={16} onPress={handleSubmit} />
+                <ButtonPrimary text={ props.form.action } marginBottom={16} onPress={handleSubmit} />
             </View>
         )}
     />
@@ -47,6 +47,16 @@ class ProjectFormModal extends Component {
     }
 
     render() {
+        const isSelectedProject = !GeneralHelper.isEmpty(this.props.selectedProject)
+        const form = {
+            title: isSelectedProject ? Localization.t(LocalizeKey.UPDATE_PROJECT) : Localization.t(LocalizeKey.CREATE_NEW_PROJECT),
+            action: isSelectedProject ? Localization.t(LocalizeKey.UPDATE) : Localization.t(LocalizeKey.SAVE),
+            handler: (name) => isSelectedProject ? this.props.updateProject(name) : this.props.addProject(name)
+        } 
+        const selectedProject = {
+            id: isSelectedProject ? this.props.selectedProject.id : 0,
+            name: isSelectedProject ? this.props.selectedProject.name : '',
+        }
         return (
             <Modal 
                 style={Style.pim_modal} 
@@ -55,7 +65,8 @@ class ProjectFormModal extends Component {
             >
                 <ProjectForm 
                     hideFormModal={ this.hideFormModal.bind(this) } 
-                    addProject={ (name) => this.props.addProject(name)} 
+                    form={ form }
+                    selectedProject={ selectedProject } 
                 />
             </Modal>
         );
@@ -64,7 +75,8 @@ class ProjectFormModal extends Component {
 
 const mapStateToProps = (state, props) =>
     createStructuredSelector({
-        isVisibleModal: selector.isVisibleModal(state, props)
+        isVisibleModal: selector.isVisibleModal(state, props),
+        selectedProject: selector.getProjectSelected(state, props),
     });
 
 export default connect(mapStateToProps, action)(ProjectFormModal);

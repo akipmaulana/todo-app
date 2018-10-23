@@ -12,6 +12,15 @@ export const getProjectFetchFulfilled = () =>
         }
     );
 
+export const getProjectSelected = () =>
+    createSelector(
+        selectProjectScreen, 
+        state => {
+            const result = state ? state.get('selectedProject').item : {}
+            return result
+        }
+    );
+
 export const isRequesting = () =>
     createSelector(
         selectProjectScreen, 

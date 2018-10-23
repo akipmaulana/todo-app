@@ -13,3 +13,6 @@ export default I18n;
 
 export const PROJECT_COMMAND = 'project_command';
 export const CREATE_NEW_PROJECT = 'create_new_project';
+export const UPDATE_PROJECT = 'update_project';
+export const SAVE = 'save';
+export const UPDATE = 'update';

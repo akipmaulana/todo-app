@@ -5,9 +5,10 @@ import { ajax } from 'rxjs/observable/dom/ajax';
 import { ApiConstants } from 'api'
 import { Constants } from 'config';
 
-export const toogleProjectFormModal = toogle => ({
+export const toogleProjectFormModal = (toogle, payload = {}) => ({
     type: Constants.TOOGLE_PROJECT_FORM_MODAL,
-    toogle
+    toogle,
+    payload
 });
 
 export const fetchProjects = () => ({ type: Constants.FETCH_PROJECT });

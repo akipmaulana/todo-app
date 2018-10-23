@@ -21,7 +21,7 @@ class ProjectCellContainer extends Component {
             <FlatList
                 data={this.props.projects}
                 renderItem={ item =>
-                    <TouchableOpacity onPress={ () => { this.props.toogleProjectFormModal(true) } }>
+                    <TouchableOpacity onPress={ () => { this.props.toogleProjectFormModal(true, item) } }>
                         <ProjectCell data={item} />
                     </TouchableOpacity>
                 }
