@@ -38,7 +38,7 @@ export const ButtonBase = ({
         ...props,
     }
     return (
-        <Button {...props} style={sx}>
+        <Button disabled={loading} {...props} style={sx}>
             { !loading ? <TextLarge text={text.toUpperCase()} fontFamily={fontFamily} color={color} flex={0} /> : null }
             <ActivityIndicator 
                 size='small'

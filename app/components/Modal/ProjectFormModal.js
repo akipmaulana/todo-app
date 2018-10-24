@@ -17,7 +17,6 @@ const ProjectForm = (props) => (
     <Formik
         initialValues={{ projectName: props.selectedProject.name || '' }}
         onSubmit={({ projectName }) => {
-            props.hideFormModal()
             props.form.handler(projectName)
         }}
         render={({
@@ -36,7 +35,7 @@ const ProjectForm = (props) => (
                 </Form>
                 <ButtonPrimary text={ props.form.action } marginBottom={16} onPress={handleSubmit} loading={props.form.isRequesting} />
                 {
-                    props.isSelectedProject ? <ButtonDelete onPress={() => {props.hideFormModal();props.form.deletion()}} /> : null
+                    props.isSelectedProject ? <ButtonDelete loading={props.form.isRequesting} onPress={() => {props.hideFormModal();props.form.deletion()}} /> : null
                 }
             </View>
         )}
@@ -70,7 +69,6 @@ class ProjectFormModal extends Component {
                 onBackdropPress={this.hideFormModal.bind(this)}
             >
                 <ProjectForm 
-                    hideFormModal={ this.hideFormModal.bind(this) } 
                     form={ form }
                     isSelectedProject={ isSelectedProject }
                     selectedProject={ selectedProject } 
