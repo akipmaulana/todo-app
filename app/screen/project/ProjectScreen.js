@@ -3,11 +3,14 @@ import { Container } from 'native-base'
 import { NavHeader } from "components/Navigation"
 import { ProjectHeaderView } from "components/View"
 import { ProjectFormModal } from 'components/Modal'
+import { LoadingPrimary } from 'components/Loading'
 import { ButtonFab } from 'components/Button'
 import { Color } from 'config'
 import ProjectCellContainer from "./container/ProjectCellContainer"
 import { connect } from 'react-redux';
+import { createStructuredSelector } from 'reselect';
 import * as action from 'myredux/action';
+import * as selector from 'myredux/selector';
 
 class ProjectScreen extends Component {
 
@@ -23,9 +26,15 @@ class ProjectScreen extends Component {
             <ProjectCellContainer ref='projectContainer'/>
             <ButtonFab icon={"add"} onPress={this.buttonAddClickHandler.bind(this)}/>
             <ProjectFormModal/>
+            <LoadingPrimary loading={this.props.isRequesting}/>
           </Container>
         );
     }
 }
 
-export default connect(null, action)(ProjectScreen);
+const mapStateToProps = (state, props) =>
+    createStructuredSelector({
+        isRequesting: selector.isRequesting(state, props),
+    });
+
+export default connect(mapStateToProps, action)(ProjectScreen);

@@ -3,7 +3,6 @@ import { View, Form } from 'native-base';
 import Style from './Style';
 import { TextLarge } from 'components/Text'
 import { FormPrimary } from 'components/Form'
-import { LoadingPrimary } from 'components/Loading'
 import { ButtonPrimary, ButtonDelete } from 'components/Button'
 import Localization, * as LocalizeKey from 'assets/locales'
 import Modal from 'react-native-modal'
@@ -75,7 +74,6 @@ class ProjectFormModal extends Component {
                     isSelectedProject={ isSelectedProject }
                     selectedProject={ selectedProject } 
                 />
-                <LoadingPrimary loading={this.props.isRequesting}/>
             </Modal>
         );
     }
@@ -83,7 +81,6 @@ class ProjectFormModal extends Component {
 
 const mapStateToProps = (state, props) =>
     createStructuredSelector({
-        isRequesting: selector.isRequesting(state, props),
         isVisibleModal: selector.isVisibleModal(state, props),
         selectedProject: selector.getProjectSelected(state, props),
     });
