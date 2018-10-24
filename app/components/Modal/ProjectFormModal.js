@@ -81,6 +81,7 @@ class ProjectFormModal extends Component {
 
 const mapStateToProps = (state, props) =>
     createStructuredSelector({
+        isRequesting: selector.isRequesting(state, props),
         isVisibleModal: selector.isVisibleModal(state, props),
         selectedProject: selector.getProjectSelected(state, props),
     });

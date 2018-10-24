@@ -33,8 +33,10 @@ const initialAppState = fromJS({
 
 export function appReducer(state = initialAppState, action) {
     switch (action.type) {
-        case Constants.ADD_PROJECT:
+        case Constants.ADD_PROJECT: 
             return state.set('isRequesting', true)
+        case Constants.FETCH_PROJECT: 
+            return state.set('isRequesting', false)
         case Constants.TOOGLE_LOADING:
             return state.set('isRequesting', action.loading)
         default:
