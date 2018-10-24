@@ -18,7 +18,8 @@ export function projectScreenReducer(state = initialProjectScreenState, action) 
             return state.set('isVisibleModal', action.toogle)
                         .setIn(['project', 'selected'], action.payload)
         case Constants.FETCH_PROJECT:
-            return state.setIn(['project', 'meta', 'isLoadMore'], true);
+            return state.set('isVisibleModal', false)
+                        .setIn(['project', 'meta', 'isLoadMore'], true);
         case Constants.FETCH_PROJECT_FULFILLED:
             return state.setIn(['project', 'data'], action.payload)
                         .setIn(['project', 'meta', 'isLoadMore'], false);

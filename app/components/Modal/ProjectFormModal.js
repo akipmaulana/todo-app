@@ -35,7 +35,7 @@ const ProjectForm = (props) => (
                 </Form>
                 <ButtonPrimary text={ props.form.action } marginBottom={16} onPress={handleSubmit} loading={props.form.isRequesting} />
                 {
-                    props.isSelectedProject ? <ButtonDelete loading={props.form.isRequesting} onPress={() => {props.hideFormModal();props.form.deletion()}} /> : null
+                    props.isSelectedProject ? <ButtonDelete loading={props.form.isRequesting} onPress={() => {props.form.deletion()}} /> : null
                 }
             </View>
         )}
