@@ -1,5 +1,6 @@
 import React, { PropTypes } from 'react'
 import { Button, Text } from 'native-base';
+import { ActivityIndicator } from 'react-native';
 import { Color, Font, Dimen } from "config";
 import { TextLarge } from "components/Text";
 
@@ -17,6 +18,7 @@ export const ButtonBase = ({
     alignSelf = 'center',
     justifyContent = 'center',
     alignItems = 'center',
+    loading = false,
     ...props,
 }) => {
     const { text } = props;
@@ -37,7 +39,15 @@ export const ButtonBase = ({
     }
     return (
         <Button {...props} style={sx}>
-            <TextLarge text={text.toUpperCase()} fontFamily={fontFamily} color={color} flex={0} />
+            { !loading ? <TextLarge text={text.toUpperCase()} fontFamily={fontFamily} color={color} flex={0} /> : null }
+            <ActivityIndicator 
+                size='small'
+                animating={loading} 
+                style={{
+                    alignSelf: 'center', 
+                    position: 'absolute', 
+                    zIndex: 1
+                }} />
         </Button>
     )
 }

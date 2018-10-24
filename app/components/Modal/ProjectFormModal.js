@@ -34,7 +34,7 @@ const ProjectForm = (props) => (
                 <Form style={Style.pim_form}>
                     <Field name="projectName" component={FormPrimary} title={"Project Name"} placeholder={"Ex. Watch a movies"}/>
                 </Form>
-                <ButtonPrimary text={ props.form.action } marginBottom={16} onPress={handleSubmit} />
+                <ButtonPrimary text={ props.form.action } marginBottom={16} onPress={handleSubmit} loading={props.form.isRequesting} />
                 {
                     props.isSelectedProject ? <ButtonDelete onPress={() => {props.hideFormModal();props.form.deletion()}} /> : null
                 }
@@ -56,7 +56,8 @@ class ProjectFormModal extends Component {
             title: isSelectedProject ? Localization.t(LocalizeKey.UPDATE_PROJECT) : Localization.t(LocalizeKey.CREATE_NEW_PROJECT),
             action: isSelectedProject ? Localization.t(LocalizeKey.UPDATE) : Localization.t(LocalizeKey.SAVE),
             handler: (name) => isSelectedProject ? this.props.updateProject(item.id, name) : this.props.addProject(name),
-            deletion: () => this.props.deleteProject(item.id)
+            deletion: () => this.props.deleteProject(item.id),
+            isRequesting: this.props.isRequesting
         } 
         const selectedProject = {
             id: isSelectedProject ? this.props.selectedProject.id : 0,
