@@ -36,7 +36,7 @@ const ProjectForm = (props) => (
                 </Form>
                 <ButtonPrimary text={ props.form.action } marginBottom={16} onPress={handleSubmit} />
                 {
-                    props.isSelectedProject ? <ButtonDelete  /> : null
+                    props.isSelectedProject ? <ButtonDelete onPress={() => {props.hideFormModal();props.form.deletion()}} /> : null
                 }
             </View>
         )}
@@ -55,7 +55,8 @@ class ProjectFormModal extends Component {
         const form = {
             title: isSelectedProject ? Localization.t(LocalizeKey.UPDATE_PROJECT) : Localization.t(LocalizeKey.CREATE_NEW_PROJECT),
             action: isSelectedProject ? Localization.t(LocalizeKey.UPDATE) : Localization.t(LocalizeKey.SAVE),
-            handler: (name) => isSelectedProject ? this.props.updateProject(item.id, name) : this.props.addProject(name)
+            handler: (name) => isSelectedProject ? this.props.updateProject(item.id, name) : this.props.addProject(name),
+            deletion: () => this.props.deleteProject(item.id)
         } 
         const selectedProject = {
             id: isSelectedProject ? this.props.selectedProject.id : 0,

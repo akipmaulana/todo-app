@@ -22,6 +22,8 @@ export const addProject = (name) => ({ type: Constants.ADD_PROJECT, name });
 
 export const updateProject = (id, newName) => ({ type: Constants.UPDATE_PROJECT, id, newName });
 
+export const deleteProject = (id) => ({ type: Constants.DELETE_PROJECT, id });
+
 export const fetchProjectsEpic = action$ =>
     action$.pipe(
         ofType(Constants.FETCH_PROJECT),
@@ -68,6 +70,21 @@ export const updateProjectsEpic = action$ =>
                 },
                 body: {
                     name: action.newName
+                }
+            }).map(ajaxResponse => fetchProjects())
+        )
+    );
+
+export const deleteProjectsEpic = action$ =>
+    action$.pipe(
+        ofType(Constants.DELETE_PROJECT),
+        mergeMap( action =>
+            ajax({
+                url: `${ApiConstants.PROJECT_URL}/${action.id}`,
+                method: 'DELETE',
+                headers: {
+                    'Authorization': ApiConstants.AUTH,
+                    //'X-Request-Id': 'C1A32AED82B2AED1'
                 }
             }).map(ajaxResponse => fetchProjects())
         )
