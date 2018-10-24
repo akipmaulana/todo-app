@@ -4,12 +4,12 @@ import Style from "./Style";
 
 export const FooterCell = props => {
 
-    const { isRequesting, numberOfRow } = props
+    const { isLoadMore, numberOfRow } = props
 
     const footer = (
         <View style={{ paddingVertical: numberOfRow > 0 ? "5%" : "50%" }} >
             <ActivityIndicator animating size="large" />
         </View>
     )
-    return isRequesting ? footer : null
+    return isLoadMore ? footer : null
 }

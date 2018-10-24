@@ -75,7 +75,7 @@ class ProjectFormModal extends Component {
                     isSelectedProject={ isSelectedProject }
                     selectedProject={ selectedProject } 
                 />
-                {/* <LoadingPrimary loading={this.props.isRequesting}/> */}
+                <LoadingPrimary loading={this.props.isRequesting}/>
             </Modal>
         );
     }

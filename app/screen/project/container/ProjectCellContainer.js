@@ -27,7 +27,7 @@ class ProjectCellContainer extends Component {
                 }
                 keyExtractor={item => String(item.id)}
                 ListFooterComponent={
-                    <FooterCell isRequesting={this.props.isRequesting} 
+                    <FooterCell isLoadMore={this.props.isLoadMore} 
                         numberOfRow={this.props.projects.length} />
                 }
             />
@@ -37,7 +37,7 @@ class ProjectCellContainer extends Component {
 
 const mapStateToProps = (state, props) =>
     createStructuredSelector({
-        isRequesting: selector.isRequesting(state, props),
+        isLoadMore: selector.isLoadMore(state, props),
         projects: selector.getProjectFetchFulfilled(state, props)
     });
 
