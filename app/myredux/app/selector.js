@@ -11,6 +11,14 @@ export const isFetchProject = () =>
         }
     );
 
+export const isCloseProject = () =>
+    createSelector(
+        selectApp, 
+        state => {
+            return state.getIn(['request', 'closeProject'])
+        }
+    );
+
 export const getRequesting = () =>
     createSelector(
         selectApp, 

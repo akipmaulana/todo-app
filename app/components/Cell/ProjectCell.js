@@ -6,7 +6,7 @@ import { Color } from 'config'
 
 export const ProjectCell = props => {
 
-    const { data, handleClosed } = props
+    const { data, handleClosed, isCloseProject } = props
 
     return (
         <Card transparent style={Style.background_card}>
@@ -18,8 +18,8 @@ export const ProjectCell = props => {
                     <Text style={Style.project_name_text}>{ data.item.name }</Text>
                     {
                         data.item.isClose ?
-                            <ButtonOpen onPress={() => handleClosed(data.item.id, !data.item.isClose)} /> :
-                            <ButtonClose onPress={() => handleClosed(data.item.id, !data.item.isClose)} />
+                            <ButtonOpen loading={isCloseProject} onPress={() => handleClosed(data.item.id, !data.item.isClose)} /> :
+                            <ButtonClose loading={isCloseProject} onPress={() => handleClosed(data.item.id, !data.item.isClose)} />
                     }
                 </Body>
             </CardItem>

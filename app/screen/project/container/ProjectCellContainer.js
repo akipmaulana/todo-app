@@ -21,7 +21,10 @@ class ProjectCellContainer extends Component {
                 data={this.props.projects}
                 renderItem={ item =>
                     <TouchableOpacity onPress={ () => this.props.toogleProjectFormModal(true, item) }>
-                        <ProjectCell data={item} handleClosed={(id, isClosed) => this.props.closeProject(id, isClosed)} />
+                        <ProjectCell 
+                            data={item} 
+                            isCloseProject={this.props.isCloseProject}
+                            handleClosed={(id, isClosed) => this.props.closeProject(id, isClosed)} />
                     </TouchableOpacity>
                 }
                 keyExtractor={item => String(item.id)}
@@ -36,6 +39,7 @@ class ProjectCellContainer extends Component {
 
 const mapStateToProps = (state, props) =>
     createStructuredSelector({
+        isCloseProject: appSelector.isCloseProject(state, props),
         isFetchProject: appSelector.isFetchProject(state, props),
         projects: projectSelector.getProjectFetchFulfilled(state, props)
     });
