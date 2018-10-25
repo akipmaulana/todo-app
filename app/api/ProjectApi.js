@@ -43,4 +43,17 @@ export default class ProjectApi extends BaseApi {
             headers: this.requestHeaders(),
         })
     }
+
+    close = (id, isClosed) => {
+        return ajax({
+            url: `${ApiPath.PROJECT}/${id}`,
+            method: 'POST',
+            headers: this.requestHeaders({
+                'Content-Type': 'application/json'
+            }),
+            body: {
+                isClosed: isClosed
+            }
+        })
+    }
 }

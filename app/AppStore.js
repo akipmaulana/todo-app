@@ -15,6 +15,7 @@ const rootEpic = combineEpics(
     projectEpic.deleteEpic,
     projectEpic.fetchEpic, 
     projectEpic.updateEpic, 
+    projectEpic.closeEpic,
 );
 
 const epicMiddleware = createEpicMiddleware(rootEpic);
