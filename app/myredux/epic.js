@@ -1,10 +1,10 @@
 import { ofType } from 'redux-observable';
-import { mergeMap } from 'rxjs/operators';
-import 'rxjs/add/operator/map';
+import { Observable } from "rxjs";
+import { mergeMap, switchMap, flatMap } from 'rxjs/operators';
 import { ajax } from 'rxjs/observable/dom/ajax';
 import { ApiConstants } from 'api'
 import { Constants } from 'config';
-import { fetchProjectFulfilled, fetchProjects } from './action'
+import { fetchProjectFulfilled, fetchProjects, toogleProjectFormModal } from './action'
 
 export const fetchProjectsEpic = action$ =>
     action$.pipe(
@@ -16,7 +16,11 @@ export const fetchProjectsEpic = action$ =>
                 headers: {
                     'Authorization': ApiConstants.AUTH
                 }
-            }).map(ajaxResponse => fetchProjectFulfilled(ajaxResponse.response))
+            }).flatMap(ajaxResponse => 
+                Observable.concat(
+                    Observable.of(fetchProjectFulfilled(ajaxResponse.response))
+                )
+            )
         )
     );
 
@@ -34,7 +38,11 @@ export const addProjectsEpic = action$ =>
                 body: {
                     name: action.name
                 }
-            }).map(ajaxResponse => fetchProjects())
+            }).flatMap(ajaxResponse => 
+                Observable.concat(
+                    Observable.of(fetchProjects())
+                )
+            )
         )
     );
 
@@ -53,7 +61,11 @@ export const updateProjectsEpic = action$ =>
                 body: {
                     name: action.newName
                 }
-            }).map(ajaxResponse => fetchProjects())
+            }).flatMap(ajaxResponse => 
+                Observable.concat(
+                    Observable.of(fetchProjects())
+                )
+            )
         )
     );
 
@@ -68,6 +80,10 @@ export const deleteProjectsEpic = action$ =>
                     'Authorization': ApiConstants.AUTH,
                     //'X-Request-Id': 'C1A32AED82B2AED1'
                 }
-            }).map(ajaxResponse => fetchProjects())
+            }).flatMap(ajaxResponse => 
+                Observable.concat(
+                    Observable.of(fetchProjects())
+                )
+            )
         )
     );
