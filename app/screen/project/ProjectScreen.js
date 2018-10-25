@@ -7,7 +7,7 @@ import { ButtonFab } from 'components/Button'
 import { Color } from 'config'
 import ProjectCellContainer from "./container/ProjectCellContainer"
 import { connect } from 'react-redux';
-import * as action from 'myredux/action';
+import { projectAction } from 'myredux';
 
 class ProjectScreen extends Component {
 
@@ -28,4 +28,4 @@ class ProjectScreen extends Component {
     }
 }
 
-export default connect(null, action)(ProjectScreen);
+export default connect(null, projectAction)(ProjectScreen);

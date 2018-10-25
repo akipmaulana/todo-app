@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux-immutable';
 
-import { projectScreenReducer, appReducer  } from 'myredux/reducer'
+import { projectReducer, appReducer  } from 'myredux'
 
 export default combineReducers({
-    projectScreen: projectScreenReducer,
+    projectScreen: projectReducer,
     app: appReducer,
 });

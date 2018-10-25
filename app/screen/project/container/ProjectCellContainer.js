@@ -2,8 +2,7 @@ import React, { Component } from 'react'
 import { FlatList, TouchableOpacity } from 'react-native';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
-import * as action from 'myredux/action';
-import * as selector from 'myredux/selector';
+import { projectAction, projectSelector } from 'myredux';
 import { ProjectCell, FooterCell } from 'components/Cell'
 
 class ProjectCellContainer extends Component {
@@ -37,8 +36,8 @@ class ProjectCellContainer extends Component {
 
 const mapStateToProps = (state, props) =>
     createStructuredSelector({
-        isFetchProject: selector.isFetchProject(state, props),
-        projects: selector.getProjectFetchFulfilled(state, props)
+        isFetchProject: projectSelector.isFetchProject(state, props),
+        projects: projectSelector.getProjectFetchFulfilled(state, props)
     });
 
-export default connect(mapStateToProps, action)(ProjectCellContainer);
+export default connect(mapStateToProps, projectAction)(ProjectCellContainer);

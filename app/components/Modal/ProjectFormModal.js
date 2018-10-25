@@ -9,8 +9,7 @@ import Modal from 'react-native-modal'
 import { Field, Formik } from 'formik';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
-import * as action from 'myredux/action';
-import * as selector from 'myredux/selector';
+import { projectAction, projectSelector, appSelector } from 'myredux';
 import { GeneralHelper } from 'helper'
 
 const ProjectForm = (props) => (
@@ -80,9 +79,9 @@ class ProjectFormModal extends Component {
 
 const mapStateToProps = (state, props) =>
     createStructuredSelector({
-        requesting: selector.getRequesting(state, props),
-        isVisibleModal: selector.isVisibleModal(state, props),
-        selectedProject: selector.getProjectSelected(state, props),
+        requesting: appSelector.getRequesting(state, props),
+        isVisibleModal: projectSelector.isVisibleModal(state, props),
+        selectedProject: projectSelector.getProjectSelected(state, props),
     });
 
-export default connect(mapStateToProps, action)(ProjectFormModal);
+export default connect(mapStateToProps, projectAction)(ProjectFormModal);

@@ -5,7 +5,7 @@ import ApiClient from 'api'
 import { ActionType } from 'app/AppConstant';
 import { fetchProjectFulfilled, fetchProjects, toogleProjectFormModal, requestFailed } from './action'
 
-export const fetchProjectsEpic = action$ =>
+export const fetchEpic = action$ =>
     action$.pipe(
         ofType(ActionType.FETCH_PROJECT),
         mergeMap( action =>
@@ -18,7 +18,7 @@ export const fetchProjectsEpic = action$ =>
         )
     );
 
-export const addProjectsEpic = action$ =>
+export const addEpic = action$ =>
     action$.pipe(
         ofType(ActionType.ADD_PROJECT),
         mergeMap( action =>
@@ -29,7 +29,7 @@ export const addProjectsEpic = action$ =>
         )
     );
 
-export const updateProjectsEpic = action$ =>
+export const updateEpic = action$ =>
     action$.pipe(
         ofType(ActionType.UPDATE_PROJECT),
         mergeMap( action =>
@@ -40,7 +40,7 @@ export const updateProjectsEpic = action$ =>
         )
     );
 
-export const deleteProjectsEpic = action$ =>
+export const deleteEpic = action$ =>
     action$.pipe(
         ofType(ActionType.DELETE_PROJECT),
         mergeMap( action =>

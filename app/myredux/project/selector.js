@@ -2,7 +2,6 @@ import { createSelector } from 'reselect';
 import { fromJS } from 'immutable';
 
 const selectProjectScreen = (state, props) => state.get('projectScreen');
-const selectApp = (state, props) => state.get('app');
 
 export const getProjectFetchFulfilled = () =>
     createSelector(
@@ -27,22 +26,5 @@ export const isVisibleModal = () =>
         selectProjectScreen, 
         state => {
             return state.get('isVisibleModal')
-        }
-    );
-
-export const isFetchProject = () =>
-    createSelector(
-        selectApp, 
-        state => {
-            return state.getIn(['request', 'fetchProject'])
-        }
-    );
-
-export const getRequesting = () =>
-    createSelector(
-        selectApp, 
-        state => {
-            const result = state ? state.get('request') : {}
-            return fromJS(result).toJS()
         }
     );

@@ -6,8 +6,6 @@ export const toogleProjectFormModal = (toogle, payload = {}) => ({
     payload
 });
 
-export const requestFailed = (error) => ({ type: ActionType.REQUEST_FAILED, error });
-
 export const fetchProjects = () => ({ type: ActionType.FETCH_PROJECT });
 
 export const fetchProjectFulfilled = payload => ({
