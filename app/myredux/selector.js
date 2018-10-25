@@ -34,8 +34,7 @@ export const isFetchProject = () =>
     createSelector(
         selectApp, 
         state => {
-            const result = state ? state.get('request') : {}
-            return fromJS(result).toJS().fetchProject
+            return state.getIn(['request', 'fetchProject'])
         }
     );
 
