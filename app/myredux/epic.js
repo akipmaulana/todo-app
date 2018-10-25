@@ -2,12 +2,12 @@ import { ofType } from 'redux-observable';
 import { Observable } from "rxjs";
 import { mergeMap, switchMap, flatMap } from 'rxjs/operators';
 import ApiClient from 'api'
-import { Constants } from 'config';
+import { ActionType } from 'app/AppConstant';
 import { fetchProjectFulfilled, fetchProjects, toogleProjectFormModal, requestFailed } from './action'
 
 export const fetchProjectsEpic = action$ =>
     action$.pipe(
-        ofType(Constants.FETCH_PROJECT),
+        ofType(ActionType.FETCH_PROJECT),
         mergeMap( action =>
             ApiClient.projects.fetch()
             .flatMap(ajaxResponse => Observable.of(
@@ -20,7 +20,7 @@ export const fetchProjectsEpic = action$ =>
 
 export const addProjectsEpic = action$ =>
     action$.pipe(
-        ofType(Constants.ADD_PROJECT),
+        ofType(ActionType.ADD_PROJECT),
         mergeMap( action =>
             ApiClient.projects.add(action.name)
             .flatMap(ajaxResponse => Observable.concat(
@@ -31,7 +31,7 @@ export const addProjectsEpic = action$ =>
 
 export const updateProjectsEpic = action$ =>
     action$.pipe(
-        ofType(Constants.UPDATE_PROJECT),
+        ofType(ActionType.UPDATE_PROJECT),
         mergeMap( action =>
             ApiClient.projects.update(action.id, action.newName)
             .flatMap(ajaxResponse => Observable.concat(
@@ -42,7 +42,7 @@ export const updateProjectsEpic = action$ =>
 
 export const deleteProjectsEpic = action$ =>
     action$.pipe(
-        ofType(Constants.DELETE_PROJECT),
+        ofType(ActionType.DELETE_PROJECT),
         mergeMap( action =>
             ApiClient.projects.delete(action.id)
             .flatMap(ajaxResponse => Observable.concat(
