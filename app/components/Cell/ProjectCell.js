@@ -1,7 +1,7 @@
 import React from 'react'
 import {Card, CardItem, Text, Body, View} from 'native-base';
 import Style from "./Style";
-import { ButtonClose } from 'components/Button'
+import { ButtonClose, ButtonOpen } from 'components/Button'
 import { Color } from 'config'
 
 export const ProjectCell = props => {
@@ -16,7 +16,11 @@ export const ProjectCell = props => {
                     <Text style={Style.flag_last_update}>Last Update</Text>
                     <Text style={Style.time_text}>{ data.item.updatedAt }</Text>
                     <Text style={Style.project_name_text}>{ data.item.name }</Text>
-                    <ButtonClose disabled={ data.item.isClose } onPress={() => handleClosed(data.item.id, !data.item.isClose)} />
+                    {
+                        data.item.isClose ?
+                            <ButtonOpen onPress={() => handleClosed(data.item.id, !data.item.isClose)} /> :
+                            <ButtonClose onPress={() => handleClosed(data.item.id, !data.item.isClose)} />
+                    }
                 </Body>
             </CardItem>
         </Card>

@@ -28,8 +28,7 @@ export default StyleSheet.create({
         fontSize: 32,
         alignSelf: 'center',
     },
-    button_close_project: {
-        color: Color.light_grey4,
+    button_tiny: {
         width: 48,
         height: 24,
         marginRight: 0,

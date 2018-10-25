@@ -3,16 +3,16 @@ import { ButtonBase } from './ButtonBase'
 import Style from "./Style";
 import { Color } from "config";
 
-export const ButtonClose = props => {
+export const ButtonOpen = props => {
 
     return (
         <ButtonBase bordered
             {...props}
-            text={"close"}
+            text={"open"}
             alignSelf={'flex-end'}
             marginRight={Style.button_tiny.marginRight}
-            color={Color.light_grey4}
-            borderColor={Color.light_grey4}
+            color={Color.amber}
+            borderColor={Color.amber}
             width={Style.button_tiny.width}
             height={Style.button_tiny.height} />
     );
