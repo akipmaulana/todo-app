@@ -1,11 +1,16 @@
+const Env = {
+    DEV: 'https://todo-node-express.herokuapp.com/api/v1/',
+    TODOLIST: 'https://beta.todoist.com/API/v8/'
+}
+
 const ApiConfig = {
-    VERSION: 'v8',
-    BASE_URL: 'https://beta.todoist.com/API/v8/',
+    BASE_URL: Env.TODOLIST,
 }
 
 export const ApiPath = {
     AUTH: 'Bearer 087e3744b380d3a751c46453e4d9265ba704b18c',
-    PROJECT: ApiConfig.BASE_URL + 'projects'
+    PROJECT: ApiConfig.BASE_URL + 'projects',
+    TASK: ApiConfig.BASE_URL + 'tasks'
 }
 
 export const ActionType = {
