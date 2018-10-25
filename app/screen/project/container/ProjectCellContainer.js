@@ -20,8 +20,8 @@ class ProjectCellContainer extends Component {
             <FlatList
                 data={this.props.projects}
                 renderItem={ item =>
-                    <TouchableOpacity onPress={ () => { this.props.toogleProjectFormModal(true, item) } }>
-                        <ProjectCell data={item} />
+                    <TouchableOpacity onPress={ () => this.props.toogleProjectFormModal(true, item) }>
+                        <ProjectCell data={item} handleClosed={(id, isClosed) => this.props.closeProject(id, isClosed)} />
                     </TouchableOpacity>
                 }
                 keyExtractor={item => String(item.id)}
