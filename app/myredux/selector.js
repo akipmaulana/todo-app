@@ -22,19 +22,20 @@ export const getProjectSelected = () =>
         }
     );
 
-export const isLoadMore = () =>
-    createSelector(
-        selectProjectScreen, 
-        state => {
-            return state.get('project').get('meta').get('isLoadMore')
-        }
-    );
-
 export const isVisibleModal = () =>
     createSelector(
         selectProjectScreen, 
         state => {
             return state.get('isVisibleModal')
+        }
+    );
+
+export const isFetchProject = () =>
+    createSelector(
+        selectApp, 
+        state => {
+            const result = state ? state.get('request') : {}
+            return fromJS(result).toJS().fetchProject
         }
     );
 
