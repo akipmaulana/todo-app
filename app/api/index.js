@@ -1,3 +1,5 @@
-import * as ApiConstants from './Constants';
+import projects from "./ProjectApi";
 
-export {ApiConstants}
+export default {
+    projects
+}
