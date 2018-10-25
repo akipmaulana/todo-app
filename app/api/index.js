@@ -1,5 +1,5 @@
-import projects from "./ProjectApi";
+import ProjectApi from "./ProjectApi";
 
 export default {
-    projects
+    projects: new ProjectApi()
 }

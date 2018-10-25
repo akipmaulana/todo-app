@@ -1,49 +1,46 @@
 import { ApiPath } from 'app/AppConstant';
 import { ajax } from 'rxjs/observable/dom/ajax';
+import BaseApi from './BaseApi'
 
-export default {
-    fetch: () => {
+export default class ProjectApi extends BaseApi {
+
+    fetch = () => {
         return ajax({
             url: ApiPath.PROJECT,
             method: 'GET',
-            headers: {
-                'Authorization': ApiPath.AUTH
-            }
+            headers: this.requestHeaders()
         })
-    },
-    add: (name) => {
+    }
+
+    add = (name) => {
         return ajax({
             url: ApiPath.PROJECT,
             method: 'POST',
-            headers: {
-                'Authorization': ApiPath.AUTH,
-                //'X-Request-Id': 'C1A32AED82B2AED1'
-            },
+            headers: this.requestHeaders(),
             body: {
                 name: name
             }
         })
-    },
-    update: (id, newName) => {
+    }
+
+    update = (id, newName) => {
         return ajax({
             url: `${ApiPath.PROJECT}/${id}`,
             method: 'POST',
-            headers: {
-                'Authorization': ApiPath.AUTH,
+            headers: this.requestHeaders({
                 'Content-Type': 'application/json'
-            },
+            }),
             body: {
                 name: newName
             }
         })
-    },
-    delete: (id) => {
+    }
+
+    delete = (id) => {
         return ajax({
             url: `${ApiPath.PROJECT}/${id}`,
             method: 'DELETE',
-            headers: {
-                'Authorization': ApiPath.AUTH
-            }
+            headers: this.requestHeaders(),
         })
     }
 }
