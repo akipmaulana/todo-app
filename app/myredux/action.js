@@ -6,7 +6,7 @@ export const toogleProjectFormModal = (toogle, payload = {}) => ({
     payload
 });
 
-export const toogleLoading = (loading) => ({ type: Constants.TOOGLE_LOADING, loading });
+export const requestFailed = (error) => ({ type: Constants.REQUEST_FAILED, error });
 
 export const fetchProjects = () => ({ type: Constants.FETCH_PROJECT });
 

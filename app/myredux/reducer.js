@@ -23,6 +23,8 @@ export function projectScreenReducer(state = initialProjectScreenState, action) 
         case Constants.FETCH_PROJECT_FULFILLED:
             return state.setIn(['project', 'data'], action.payload)
                         .setIn(['project', 'meta', 'isLoadMore'], false);
+        case Constants.REQUEST_FAILED:
+            return state.setIn(['project', 'failed'], action.error)
         default:
             return state;
     }
@@ -44,8 +46,6 @@ export function appReducer(state = initialAppState, action) {
             return state.setIn(['request', 'addProject'], false)
                         .setIn(['request', 'updateProject'], false)
                         .setIn(['request', 'deleteProject'], false)
-        case Constants.TOOGLE_LOADING:
-            return state.set('isRequesting', action.loading)
         default:
             return state;
     }

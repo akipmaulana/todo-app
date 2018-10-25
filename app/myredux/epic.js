@@ -4,23 +4,23 @@ import { mergeMap, switchMap, flatMap } from 'rxjs/operators';
 import { ajax } from 'rxjs/observable/dom/ajax';
 import { ApiConstants } from 'api'
 import { Constants } from 'config';
-import { fetchProjectFulfilled, fetchProjects, toogleProjectFormModal } from './action'
+import { fetchProjectFulfilled, fetchProjects, toogleProjectFormModal, requestFailed } from './action'
 
 export const fetchProjectsEpic = action$ =>
     action$.pipe(
         ofType(Constants.FETCH_PROJECT),
         mergeMap( action =>
             ajax({
-                url: ApiConstants.PROJECT_URL,
+                url: ApiConstants.PROJECT_URL + 'asd',
                 method: 'GET',
                 headers: {
                     'Authorization': ApiConstants.AUTH
                 }
-            }).flatMap(ajaxResponse => 
-                Observable.concat(
-                    Observable.of(fetchProjectFulfilled(ajaxResponse.response))
-                )
-            )
+            }).flatMap(ajaxResponse => Observable.of(
+                fetchProjectFulfilled(ajaxResponse.response)
+            )).catch(error => Observable.of(
+                requestFailed(error)
+            ))
         )
     );
 
@@ -36,13 +36,11 @@ export const addProjectsEpic = action$ =>
                     //'X-Request-Id': 'C1A32AED82B2AED1'
                 },
                 body: {
-                    name: action.name
+                    nme: action.name
                 }
-            }).flatMap(ajaxResponse => 
-                Observable.concat(
-                    Observable.of(fetchProjects())
-                )
-            )
+            }).flatMap(ajaxResponse => Observable.concat(
+                Observable.of(fetchProjects())
+            ))
         )
     );
 
@@ -61,11 +59,9 @@ export const updateProjectsEpic = action$ =>
                 body: {
                     name: action.newName
                 }
-            }).flatMap(ajaxResponse => 
-                Observable.concat(
-                    Observable.of(fetchProjects())
-                )
-            )
+            }).flatMap(ajaxResponse => Observable.concat(
+                Observable.of(fetchProjects())
+            ))
         )
     );
 
@@ -80,10 +76,8 @@ export const deleteProjectsEpic = action$ =>
                     'Authorization': ApiConstants.AUTH,
                     //'X-Request-Id': 'C1A32AED82B2AED1'
                 }
-            }).flatMap(ajaxResponse => 
-                Observable.concat(
-                    Observable.of(fetchProjects())
-                )
-            )
+            }).flatMap(ajaxResponse => Observable.concat(
+                Observable.of(fetchProjects())
+            ))
         )
     );
