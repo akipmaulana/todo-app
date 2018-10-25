@@ -29,19 +29,21 @@ export function projectScreenReducer(state = initialProjectScreenState, action) 
 }
 
 const initialAppState = fromJS({
-    isRequesting: false
+    request: {}
 });
 
 export function appReducer(state = initialAppState, action) {
     switch (action.type) {
         case Constants.ADD_PROJECT: 
-            return state.set('isRequesting', true)
+            return state.setIn(['request', 'addProject'], true)
         case Constants.UPDATE_PROJECT: 
-            return state.set('isRequesting', true)
+            return state.setIn(['request', 'updateProject'], true)
         case Constants.DELETE_PROJECT: 
-            return state.set('isRequesting', true)
+            return state.setIn(['request', 'deleteProject'], true)
         case Constants.FETCH_PROJECT: 
-            return state.set('isRequesting', false)
+            return state.setIn(['request', 'addProject'], false)
+                        .setIn(['request', 'updateProject'], false)
+                        .setIn(['request', 'deleteProject'], false)
         case Constants.TOOGLE_LOADING:
             return state.set('isRequesting', action.loading)
         default:

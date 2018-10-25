@@ -33,9 +33,9 @@ const ProjectForm = (props) => (
                 <Form style={Style.pim_form}>
                     <Field name="projectName" component={FormPrimary} title={"Project Name"} placeholder={"Ex. Watch a movies"}/>
                 </Form>
-                <ButtonPrimary text={ props.form.action } marginBottom={16} onPress={handleSubmit} loading={props.form.isRequesting} />
+                <ButtonPrimary text={ props.form.action } marginBottom={16} onPress={handleSubmit} loading={props.form.requesting.addProject || props.form.requesting.updateProject} />
                 {
-                    props.isSelectedProject ? <ButtonDelete loading={props.form.isRequesting} onPress={() => {props.form.deletion()}} /> : null
+                    props.isSelectedProject ? <ButtonDelete loading={props.form.requesting.deleteProject} onPress={() => {props.form.deletion()}} /> : null
                 }
             </View>
         )}
@@ -56,7 +56,7 @@ class ProjectFormModal extends Component {
             action: isSelectedProject ? Localization.t(LocalizeKey.UPDATE) : Localization.t(LocalizeKey.SAVE),
             handler: (name) => isSelectedProject ? this.props.updateProject(item.id, name) : this.props.addProject(name),
             deletion: () => this.props.deleteProject(item.id),
-            isRequesting: this.props.isRequesting
+            requesting: this.props.requesting
         } 
         const selectedProject = {
             id: isSelectedProject ? this.props.selectedProject.id : 0,
@@ -80,7 +80,7 @@ class ProjectFormModal extends Component {
 
 const mapStateToProps = (state, props) =>
     createStructuredSelector({
-        isRequesting: selector.isRequesting(state, props),
+        requesting: selector.getRequesting(state, props),
         isVisibleModal: selector.isVisibleModal(state, props),
         selectedProject: selector.getProjectSelected(state, props),
     });

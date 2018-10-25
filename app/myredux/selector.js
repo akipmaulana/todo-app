@@ -38,10 +38,11 @@ export const isVisibleModal = () =>
         }
     );
 
-export const isRequesting = () =>
+export const getRequesting = () =>
     createSelector(
         selectApp, 
         state => {
-            return state.get('isRequesting')
+            const result = state ? state.get('request') : {}
+            return fromJS(result).toJS()
         }
     );
