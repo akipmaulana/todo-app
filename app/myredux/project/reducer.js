@@ -1,11 +1,10 @@
-import { fromJS } from 'immutable';
+import { fromJS, Map } from 'immutable';
 import { ActionType } from 'app/AppConstant';
 
 const initialProjectScreenState = fromJS({
     isVisibleModal: false,
     project: {
-        selected: {},
-        data: []
+        selected: {}
     }
 });
 
@@ -17,7 +16,9 @@ export default function projectScreenReducer(state = initialProjectScreenState, 
         case ActionType.FETCH_PROJECT:
             return state.set('isVisibleModal', false);
         case ActionType.FETCH_PROJECT_FULFILLED:
-            return state.setIn(['project', 'data'], action.payload);
+            let project = state.get('project')
+            let payload = Map(action.payload)
+            return state.set('project', project.merge(payload))
         case ActionType.REQUEST_FAILED:
             return state.setIn(['project', 'failed'], action.error)
         default:

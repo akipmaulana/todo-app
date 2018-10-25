@@ -4,7 +4,7 @@ const Env = {
 }
 
 const ApiConfig = {
-    BASE_URL: Env.TODOLIST,
+    BASE_URL: Env.DEV,
 }
 
 export const ApiPath = {
