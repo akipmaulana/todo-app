@@ -6,17 +6,17 @@ export const toogleProjectFormModal = (toogle, payload = {}) => ({
     payload
 });
 
-export const fetchProjects = () => ({ type: ActionType.FETCH_PROJECT });
+export const fetchProjects = () => ({ type: ActionType.PROJECT_FETCH_REQUEST });
 
 export const fetchProjectFulfilled = payload => ({
-    type: ActionType.FETCH_PROJECT_FULFILLED,
+    type: ActionType.PROJECT_FETCH_SUCCESS,
     payload
 });
 
-export const addProject = (name) => ({ type: ActionType.ADD_PROJECT, name });
+export const addProject = (name) => ({ type: ActionType.PROJECT_ADD_REQUEST, name });
 
-export const updateProject = (id, newName) => ({ type: ActionType.UPDATE_PROJECT, id, newName });
+export const updateProject = (id, newName) => ({ type: ActionType.PROJECT_UPDATE_REQUEST, id, newName });
 
-export const deleteProject = (id) => ({ type: ActionType.DELETE_PROJECT, id });
+export const deleteProject = (id) => ({ type: ActionType.PROJECT_DELETE_REQUEST, id });
 
-export const closeProject = (data) => ({ type: ActionType.CLOSE_PROJECT, data });
+export const closeProject = (data) => ({ type: ActionType.PROJECT_CLOSE_REQUEST, data });

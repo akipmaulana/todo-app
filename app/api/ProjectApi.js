@@ -6,7 +6,7 @@ export default class ProjectApi extends BaseApi {
 
     fetch = () => {
         return ajax({
-            url: ApiPath.PROJECT,
+            url: `${ApiPath.PROJECT}?page=2`,
             method: 'GET',
             headers: this.requestHeaders()
         })
