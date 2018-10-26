@@ -20,3 +20,5 @@ export const updateProject = (id, newName) => ({ type: ActionType.PROJECT_UPDATE
 export const deleteProject = (id) => ({ type: ActionType.PROJECT_DELETE_REQUEST, id });
 
 export const closeProject = (data) => ({ type: ActionType.PROJECT_CLOSE_REQUEST, data });
+
+export const closeProjectDidSucceed = payload => ({ type: ActionType.PROJECT_CLOSE_SUCCESS, payload });

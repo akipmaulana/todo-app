@@ -60,8 +60,7 @@ export const closeEpic = action$ =>
         mergeMap( action =>
             ApiClient.projects.close(action.data.id, action.data.isClosed)
             .flatMap(ajaxResponse => Observable.concat(
-                Observable.of(appAction.requestSuccess(ActionType.PROJECT_CLOSE_SUCCESS)),
-                Observable.of(projectAction.fetchProjects())
+                Observable.of(projectAction.closeProjectDidSucceed(ajaxResponse.response))
             ))
         )
     );

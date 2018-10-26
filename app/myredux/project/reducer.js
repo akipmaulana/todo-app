@@ -19,6 +19,14 @@ export default function projectScreenReducer(state = initialProjectScreenState, 
             let project = state.get('project')
             let payload = Map(action.payload)
             return state.set('project', project.merge(payload))
+        case ActionType.PROJECT_CLOSE_SUCCESS:
+            let list = state.getIn(['project', 'data'])
+            list.forEach((element, index) => {
+                if(element.id === action.payload.id) {
+                    list[index] = action.payload
+                }
+            });
+            return state.setIn(['project', 'data'], list)
         default:
             return state;
     }
