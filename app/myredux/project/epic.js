@@ -3,7 +3,7 @@ import { Observable } from "rxjs";
 import { mergeMap, switchMap, flatMap } from 'rxjs/operators';
 import ApiClient from 'api'
 import { ActionType } from 'app/AppConstant';
-import { fetchProjectFulfilled, fetchProjects, toogleProjectFormModal, requestFailed } from './action'
+import { projectAction, appAction } from 'myredux'
 
 export const fetchEpic = action$ =>
     action$.pipe(
@@ -11,9 +11,9 @@ export const fetchEpic = action$ =>
         mergeMap( action =>
             ApiClient.projects.fetch()
             .flatMap(ajaxResponse => Observable.of(
-                fetchProjectFulfilled(ajaxResponse.response)
+                projectAction.fetchProjectFulfilled(ajaxResponse.response)
             )).catch(error => Observable.of(
-                requestFailed(error)
+                appAction.requestFailed(error)
             ))
         )
     );
@@ -24,7 +24,8 @@ export const addEpic = action$ =>
         mergeMap( action =>
             ApiClient.projects.add(action.name)
             .flatMap(ajaxResponse => Observable.concat(
-                Observable.of(fetchProjects())
+                Observable.of(appAction.requestSuccess(ActionType.PROJECT_ADD_SUCCESS)),
+                Observable.of(projectAction.fetchProjects())
             ))
         )
     );
@@ -35,7 +36,8 @@ export const updateEpic = action$ =>
         mergeMap( action =>
             ApiClient.projects.update(action.id, action.newName)
             .flatMap(ajaxResponse => Observable.concat(
-                Observable.of(fetchProjects())
+                Observable.of(appAction.requestSuccess(ActionType.PROJECT_UPDATE_SUCCESS)),
+                Observable.of(projectAction.fetchProjects())
             ))
         )
     );
@@ -46,7 +48,8 @@ export const deleteEpic = action$ =>
         mergeMap( action =>
             ApiClient.projects.delete(action.id)
             .flatMap(ajaxResponse => Observable.concat(
-                Observable.of(fetchProjects())
+                Observable.of(appAction.requestSuccess(ActionType.PROJECT_DELETE_SUCCESS)),
+                Observable.of(projectAction.fetchProjects())
             ))
         )
     );
@@ -57,7 +60,8 @@ export const closeEpic = action$ =>
         mergeMap( action =>
             ApiClient.projects.close(action.data.id, action.data.isClosed)
             .flatMap(ajaxResponse => Observable.concat(
-                Observable.of(fetchProjects())
+                Observable.of(appAction.requestSuccess(ActionType.PROJECT_CLOSE_SUCCESS)),
+                Observable.of(projectAction.fetchProjects())
             ))
         )
     );

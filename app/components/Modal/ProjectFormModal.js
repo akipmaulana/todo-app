@@ -50,12 +50,13 @@ class ProjectFormModal extends Component {
     render() {
         const item = this.props.selectedProject || {}
         const isSelectedProject = !GeneralHelper.isEmpty(this.props.selectedProject)
+        const requesting = {addProject: this.props.isAddProject, updateProject: this.props.isUpdateProject, deleteProject: this.props.isDeleteProject}
         const form = {
             title: isSelectedProject ? Localization.t(LocalizeKey.UPDATE_PROJECT) : Localization.t(LocalizeKey.CREATE_NEW_PROJECT),
             action: isSelectedProject ? Localization.t(LocalizeKey.UPDATE) : Localization.t(LocalizeKey.SAVE),
             handler: (name) => isSelectedProject ? this.props.updateProject(item.id, name) : this.props.addProject(name),
             deletion: () => this.props.deleteProject(item.id),
-            requesting: this.props.requesting
+            requesting: requesting
         } 
         const selectedProject = {
             id: isSelectedProject ? this.props.selectedProject.id : 0,
@@ -79,7 +80,9 @@ class ProjectFormModal extends Component {
 
 const mapStateToProps = (state, props) =>
     createStructuredSelector({
-        requesting: appSelector.getRequesting(state, props),
+        isDeleteProject: appSelector.isDeleteProject(state, props),
+        isAddProject: appSelector.isAddProject(state, props),
+        isUpdateProject: appSelector.isUpdateProject(state, props),
         isVisibleModal: projectSelector.isVisibleModal(state, props),
         selectedProject: projectSelector.getProjectSelected(state, props),
     });

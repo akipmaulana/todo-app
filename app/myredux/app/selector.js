@@ -1,29 +1,44 @@
 import { createSelector } from 'reselect';
 import { fromJS } from 'immutable';
 
-const selectApp = (state, props) => state.get('app');
+const selectAppRequest = (state, props) => state.get('app').get('request');
 
 export const isFetchProject = () =>
     createSelector(
-        selectApp, 
+        selectAppRequest, 
         state => {
-            return state.getIn(['request', 'fetchProject'])
+            return state.get('PROJECT_FETCH')
         }
     );
 
 export const isCloseProject = () =>
     createSelector(
-        selectApp, 
+        selectAppRequest, 
         state => {
-            return state.getIn(['request', 'closeProject'])
+            return state.get('PROJECT_CLOSE')
         }
     );
 
-export const getRequesting = () =>
+export const isUpdateProject = () =>
     createSelector(
-        selectApp, 
+        selectAppRequest, 
         state => {
-            const result = state ? state.get('request') : {}
-            return fromJS(result).toJS()
+            return state.get('PROJECT_UPDATE')
+        }
+    );
+
+export const isDeleteProject = () =>
+    createSelector(
+        selectAppRequest, 
+        state => {
+            return state.get('PROJECT_DELETE')
+        }
+    );
+
+export const isAddProject = () =>
+    createSelector(
+        selectAppRequest, 
+        state => {
+            return state.get('PROJECT_ADD')
         }
     );
