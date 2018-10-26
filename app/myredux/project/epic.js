@@ -55,7 +55,7 @@ export const closeEpic = action$ =>
     action$.pipe(
         ofType(ActionType.CLOSE_PROJECT),
         mergeMap( action =>
-            ApiClient.projects.close(action.id, action.isClosed)
+            ApiClient.projects.close(action.data.id, action.data.isClosed)
             .flatMap(ajaxResponse => Observable.concat(
                 Observable.of(fetchProjects())
             ))

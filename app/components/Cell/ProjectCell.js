@@ -8,18 +8,27 @@ export const ProjectCell = props => {
 
     const { data, handleClosed, isCloseProject } = props
 
+    handlePress = () => {
+        const closeData = {
+            index: data.index,
+            id: data.item.id,
+            isClosed: !data.item.isClosed
+        }
+        handleClosed(closeData)
+    }
+
     return (
         <Card transparent style={Style.background_card}>
             <CardItem style={Style.background_card}>
                 <Body>
-                    <View style={{...Style.badge_cell, backgroundColor: data.item.isClose ? Color.light_grey4 : Color.amber}}/>
+                    <View style={{...Style.badge_cell, backgroundColor: data.item.isClosed ? Color.light_grey4 : Color.amber}}/>
                     <Text style={Style.flag_last_update}>Last Update</Text>
                     <Text style={Style.time_text}>{ data.item.updatedAt }</Text>
                     <Text style={Style.project_name_text}>{ data.item.name }</Text>
                     {
-                        data.item.isClose ?
-                            <ButtonOpen loading={isCloseProject} onPress={() => handleClosed(data.item.id, !data.item.isClose)} /> :
-                            <ButtonClose loading={isCloseProject} onPress={() => handleClosed(data.item.id, !data.item.isClose)} />
+                        data.item.isClosed ?
+                            <ButtonOpen loading={isCloseProject} onPress={handlePress.bind(this)} /> :
+                            <ButtonClose loading={isCloseProject} onPress={handlePress.bind(this)} />
                     }
                 </Body>
             </CardItem>

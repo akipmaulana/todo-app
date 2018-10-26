@@ -14,7 +14,7 @@ export default function projectScreenReducer(state = initialProjectScreenState, 
             return state.set('isVisibleModal', action.toogle)
                         .setIn(['project', 'selected'], action.payload)
         case ActionType.FETCH_PROJECT:
-            return state.set('isVisibleModal', false);
+            return state.set('isVisibleModal', false)
         case ActionType.FETCH_PROJECT_FULFILLED:
             let project = state.get('project')
             let payload = Map(action.payload)

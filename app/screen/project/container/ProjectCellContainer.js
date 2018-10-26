@@ -24,7 +24,7 @@ class ProjectCellContainer extends Component {
                         <ProjectCell 
                             data={item} 
                             isCloseProject={this.props.isCloseProject}
-                            handleClosed={(id, isClosed) => this.props.closeProject(id, isClosed)} />
+                            handleClosed={(data) => this.props.closeProject(data)} />
                     </TouchableOpacity>
                 }
                 keyExtractor={item => String(item.id)}

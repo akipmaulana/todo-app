@@ -19,4 +19,4 @@ export const updateProject = (id, newName) => ({ type: ActionType.UPDATE_PROJECT
 
 export const deleteProject = (id) => ({ type: ActionType.DELETE_PROJECT, id });
 
-export const closeProject = (id, isClosed) => ({ type: ActionType.CLOSE_PROJECT, id, isClosed });
+export const closeProject = (data) => ({ type: ActionType.CLOSE_PROJECT, data });
