@@ -9,7 +9,7 @@ export const fetchEpic = action$ =>
     action$.pipe(
         ofType(ActionType.PROJECT_FETCH_REQUEST),
         mergeMap( action =>
-            ApiClient.projects.fetch()
+            ApiClient.projects.fetch(action.page)
             .flatMap(ajaxResponse => Observable.of(
                 projectAction.fetchProjectFulfilled(ajaxResponse.response)
             )).catch(error => Observable.of(

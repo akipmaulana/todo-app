@@ -6,7 +6,7 @@ export const toogleProjectFormModal = (toogle, payload = {}) => ({
     payload
 });
 
-export const fetchProjects = () => ({ type: ActionType.PROJECT_FETCH_REQUEST });
+export const fetchProjects = (page = 'page=1') => ({ type: ActionType.PROJECT_FETCH_REQUEST, page });
 
 export const fetchProjectFulfilled = payload => ({
     type: ActionType.PROJECT_FETCH_SUCCESS,

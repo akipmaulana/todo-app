@@ -4,9 +4,9 @@ import BaseApi from './BaseApi'
 
 export default class ProjectApi extends BaseApi {
 
-    fetch = () => {
+    fetch = (query) => {
         return ajax({
-            url: `${ApiPath.PROJECT}?page=2`,
+            url: `${ApiPath.PROJECT}?${query}`,
             method: 'GET',
             headers: this.requestHeaders()
         })
