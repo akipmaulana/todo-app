@@ -3,7 +3,8 @@ import { Color, Font } from "config";
 
 export default StyleSheet.create({
     nav_container: {
-        backgroundColor: Color.white
+        backgroundColor: Color.white,
+        borderBottomWidth: 0,
     },
     nav_title: {
         color: Color.blue,

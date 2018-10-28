@@ -2,7 +2,7 @@ import React from 'react';
 import { ScreenName } from "app/AppConstant";
 import { createStackNavigator } from 'react-navigation';
 import ProjectScreen from 'screen/project/ProjectScreen';
-import HistoryScreen from 'screen/history/HistoryScreen';
+import TaskScreen from 'screen/task/TaskScreen';
 
 
 const StackNavigation = createStackNavigator(
@@ -10,8 +10,8 @@ const StackNavigation = createStackNavigator(
         [ScreenName.PROJECT]: {
             screen: ProjectScreen,
         },
-        [ScreenName.HISTORY]: {
-            screen: HistoryScreen,
+        [ScreenName.TASK]: {
+            screen: TaskScreen,
         }
     }, 
     {

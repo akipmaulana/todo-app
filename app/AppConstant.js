@@ -52,5 +52,5 @@ export const ScreenName = {
     HISTORY: "History",
     FAVORITE: "Favorite",
     COMPLETE: "Complete",
-    TASK: "Task"
+    TASK: "Task",
 }

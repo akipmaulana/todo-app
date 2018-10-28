@@ -7,7 +7,7 @@ export default StyleSheet.create({
         width: Dimen.full_width,
         height: Dimen.full_height,
     },
-    project_header_view: {
+    header_view: {
         padding: 16,
         marginBottom: 8,
         backgroundColor: Color.white,
@@ -17,7 +17,16 @@ export default StyleSheet.create({
         width: Dimen.full_width,
         height: Dimen.project_header_height()
     },
-    project_header_view_text: {
-        color: Color.blue
-    }
+    header_separator_vertical: { 
+        backgroundColor: Color.blue, 
+        width: 1, 
+        height: 96, 
+        marginBottom: 32
+    },
+    primary_header_view_text: {
+        color: Color.blue,
+    },
+    secondary_header_view_text: {
+        color: Color.light_grey4,
+    },
 })

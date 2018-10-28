@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 import { projectAction, projectSelector, appSelector } from 'myredux';
 import { ProjectCell, FooterCell } from 'components/Cell'
+import { ScreenName } from "app/AppConstant";
 
 class ProjectCellContainer extends Component {
 
@@ -31,7 +32,7 @@ class ProjectCellContainer extends Component {
                 onEndReachedThreshold={0.7}
                 renderItem={ item =>
                     <TouchableOpacity 
-                        onPress={ () => navigate('History') }
+                        onPress={ () => navigate(ScreenName.TASK, { project: item.item }) }
                         onLongPress={ () => this.props.toogleProjectFormModal(true, item) }
                     >
                         <ProjectCell 
