@@ -16,6 +16,7 @@ class ProjectCellContainer extends Component {
     }
 
     render() {
+        const { navigate } = this.props.navigation
         const data = this.props.project.data || []
         const meta = this.props.project.meta
         return (
@@ -30,7 +31,7 @@ class ProjectCellContainer extends Component {
                 onEndReachedThreshold={0.7}
                 renderItem={ item =>
                     <TouchableOpacity 
-                        onPress={ () => console.log(`Hello from ${item.item.name}`) }
+                        onPress={ () => navigate('History') }
                         onLongPress={ () => this.props.toogleProjectFormModal(true, item) }
                     >
                         <ProjectCell 

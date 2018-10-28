@@ -46,3 +46,11 @@ export const StateKey = {
     SELECTED: 'selected',
     UPDATE_PROJECT: 'updateProject',
 }
+
+export const ScreenName = {
+    PROJECT: "Project",
+    HISTORY: "History",
+    FAVORITE: "Favorite",
+    COMPLETE: "Complete",
+    TASK: "Task"
+}

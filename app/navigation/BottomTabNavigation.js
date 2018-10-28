@@ -1,5 +1,5 @@
 import React from 'react';
-import * as ScreenNames from "../ScreenNames";
+import { ScreenName } from "app/AppConstant";
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { createBottomTabNavigator } from 'react-navigation';
 import { Color } from 'config';
@@ -8,18 +8,18 @@ import FavoriteScreen from 'screen/favorite/FavoriteScreen';
 import CompleteScreen from 'screen/complete/CompleteScreen';
 import HistoryScreen from 'screen/history/HistoryScreen';
 
-const MainNavigation = createBottomTabNavigator(
+const BottomTabNavigation = createBottomTabNavigator(
     {
-        [ScreenNames.PROJECT]: {
+        [ScreenName.PROJECT]: {
           screen: ProjectScreen
         },
-        [ScreenNames.HISTORY]: {
+        [ScreenName.HISTORY]: {
             screen: HistoryScreen
         },
-        [ScreenNames.FAVORITE]: {
+        [ScreenName.FAVORITE]: {
             screen: FavoriteScreen
         },
-        [ScreenNames.COMPLETE]: {
+        [ScreenName.COMPLETE]: {
             screen: CompleteScreen
         },
     },
@@ -29,16 +29,16 @@ const MainNavigation = createBottomTabNavigator(
           const { routeName } = navigation.state;
           let iconName;
           switch (routeName) {
-            case ScreenNames.PROJECT:
+            case ScreenName.PROJECT:
               iconName = `ios-albums`;  
               break;
-            case ScreenNames.HISTORY:
+            case ScreenName.HISTORY:
               iconName = 'ios-clock'; 
               break;
-            case ScreenNames.FAVORITE:
+            case ScreenName.FAVORITE:
               iconName = `ios-heart`;
               break;
-            case ScreenNames.COMPLETE:
+            case ScreenName.COMPLETE:
               iconName = `ios-archive`;
               break;
             default:
@@ -56,4 +56,4 @@ const MainNavigation = createBottomTabNavigator(
     }
   );
 
-export default MainNavigation
+export default BottomTabNavigation

@@ -8,11 +8,11 @@
 
 import React, {Component} from 'react';
 import RNSplashScreen from 'react-native-splash-screen';
-import MainNavigation from './app/navigation/navigators/MainNavigation'
 import { Provider } from 'react-redux';
 import store from './app/AppStore'
 import ProjectScreen from './app/screen/project/ProjectScreen';
 import {logRequests} from 'react-native-requests-logger';
+import StackNavigation from './app/navigation/StackNavigation'
 
 export default class App extends Component {
 
@@ -28,7 +28,7 @@ export default class App extends Component {
   render() {
     return (
         <Provider store={store}>
-            <ProjectScreen/>
+            <StackNavigation/>
         </Provider>
     );
     
