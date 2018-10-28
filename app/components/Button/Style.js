@@ -23,9 +23,8 @@ export default StyleSheet.create({
       borderRadius: Dimen.circular_radius(54, 54),
     },
     fab_icon: {
-        fontSize: Font.size.large,
+        fontSize: Font.size.xxx_large,
         color: Color.white,
-        fontSize: 32,
         alignSelf: 'center',
     },
     button_tiny: {

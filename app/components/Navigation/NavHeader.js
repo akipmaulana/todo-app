@@ -1,5 +1,6 @@
 import React, { PropTypes } from 'react'
-import {Header, Left, Body, Right, Title} from 'native-base';
+import {Header, Left, Body, Right, Title, Button} from 'native-base';
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import Style from "./Style";
 
 export const NavHeader = props => {
@@ -8,11 +9,19 @@ export const NavHeader = props => {
 
     return (
         <Header style={Style.nav_container} androidStatusBarColor={ Style.nav_container.backgroundColor }>
-            <Left/>
+            <Left>
+                <Button transparent>
+                    <MaterialIcons name='menu' style={Style.nav_icon} />
+                </Button>
+            </Left>
             <Body>
                 <Title style={Style.nav_title}>{text}</Title>
             </Body>
-            <Right />
+            <Right>
+                <Button transparent>
+                    <MaterialIcons name='filter-list' style={Style.nav_icon} />
+                </Button>
+            </Right>
         </Header>
     );
 }

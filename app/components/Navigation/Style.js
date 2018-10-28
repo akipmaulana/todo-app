@@ -6,7 +6,11 @@ export default StyleSheet.create({
         backgroundColor: Color.white
     },
     nav_title: {
-      color: Color.blue,
-      fontFamily: Font.family.light,
+        color: Color.blue,
+        fontFamily: Font.family.light,
     },
+    nav_icon: {
+        color: Color.blue,
+        fontSize: Font.size.xx_large,
+    }
 })
