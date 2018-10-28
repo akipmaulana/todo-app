@@ -12,35 +12,6 @@ import { createStructuredSelector } from 'reselect';
 import { projectAction, projectSelector, appSelector } from 'myredux';
 import { GeneralHelper } from 'helper'
 
-const ProjectForm = (props) => (
-    <Formik
-        initialValues={{ projectName: props.selectedProject.name || '' }}
-        onSubmit={({ projectName }) => {
-            props.form.handler(projectName)
-        }}
-        render={({
-            handleSubmit,
-        }) => (
-            <View style={{...Style.pim_background_view, height: props.isSelectedProject ? 300 : 256}} >
-                <View style={Style.pim_header_view}>
-                    <TextLarge 
-                        flex={0}
-                        text={ props.form.title } 
-                        color={ Style.pim_header_text.color } 
-                        fontFamily={ Style.pim_header_text.fontFamily }/>
-                </View>
-                <Form style={Style.pim_form}>
-                    <Field name="projectName" component={FormPrimary} title={"Project Name"} placeholder={"Ex. Watch a movies"}/>
-                </Form>
-                <ButtonPrimary text={ props.form.action } marginBottom={16} onPress={handleSubmit} loading={props.form.requesting.addProject || props.form.requesting.updateProject} />
-                {
-                    props.isSelectedProject ? <ButtonDelete loading={props.form.requesting.deleteProject} onPress={() => {props.form.deletion()}} /> : null
-                }
-            </View>
-        )}
-    />
-);
-
 class ProjectFormModal extends Component {
 
     hideFormModal = () => {
@@ -62,16 +33,38 @@ class ProjectFormModal extends Component {
             id: isSelectedProject ? this.props.selectedProject.id : 0,
             name: isSelectedProject ? this.props.selectedProject.name : '',
         }
+
         return (
             <Modal 
                 style={Style.pim_modal} 
                 isVisible={this.props.isVisibleModal} 
                 onBackdropPress={this.hideFormModal.bind(this)}
             >
-                <ProjectForm 
-                    form={ form }
-                    isSelectedProject={ isSelectedProject }
-                    selectedProject={ selectedProject } 
+                <Formik
+                    initialValues={{ projectName: selectedProject.name || '' }}
+                    onSubmit={({ projectName }) => {
+                        form.handler(projectName)
+                    }}
+                    render={({
+                        handleSubmit,
+                    }) => (
+                        <View style={{...Style.pim_background_view, height: isSelectedProject ? 300 : 256}} >
+                            <View style={Style.pim_header_view}>
+                                <TextLarge 
+                                    flex={0}
+                                    text={ form.title } 
+                                    color={ Style.pim_header_text.color } 
+                                    fontFamily={ Style.pim_header_text.fontFamily }/>
+                            </View>
+                            <Form style={Style.pim_form}>
+                                <Field name="projectName" component={FormPrimary} title={"Project Name"} placeholder={"Ex. Watch a movies"}/>
+                            </Form>
+                            <ButtonPrimary text={ form.action } marginBottom={16} onPress={handleSubmit} loading={ form.requesting.addProject || form.requesting.updateProject} />
+                            {
+                                isSelectedProject ? <ButtonDelete loading={form.requesting.deleteProject} onPress={() => {form.deletion()}} /> : null
+                            }
+                        </View>
+                    )}
                 />
             </Modal>
         );
