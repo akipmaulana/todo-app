@@ -29,7 +29,10 @@ class ProjectCellContainer extends Component {
                 }}
                 onEndReachedThreshold={0.7}
                 renderItem={ item =>
-                    <TouchableOpacity onPress={ () => this.props.toogleProjectFormModal(true, item) }>
+                    <TouchableOpacity 
+                        onPress={ () => console.log(`Hello from ${item.item.name}`) }
+                        onLongPress={ () => this.props.toogleProjectFormModal(true, item) }
+                    >
                         <ProjectCell 
                             data={item} 
                             isCloseProject={this.props.isCloseProject}
