@@ -2,16 +2,10 @@ import { createSelector } from 'reselect';
 
 const selectProjectScreen = (state, props) => state.get('projectScreen');
 
-export const getProjectData = () =>
+export const getProject = () =>
     createSelector(
         selectProjectScreen, 
-        state => state.get('project').get('data') || []
-    );
-
-export const getProjectMeta = () =>
-    createSelector(
-        selectProjectScreen, 
-        state => state.get('project').get('meta') || {}
+        state => state.get('project').toJS() || {}
     );
 
 export const getProjectSelected = () =>

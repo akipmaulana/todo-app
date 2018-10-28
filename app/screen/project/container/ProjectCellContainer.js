@@ -16,13 +16,15 @@ class ProjectCellContainer extends Component {
     }
 
     render() {
+        const data = this.props.project.data || []
+        const meta = this.props.project.meta
         return (
             <FlatList
-                data={this.props.projects}
+                data={data}
                 keyExtractor={item => String(item.id)}
                 onEndReached={ (info) => {
-                    if (this.props.meta.next !== '' && !this.props.isFetchProject) {
-                        this.props.fetchProjects(this.props.meta.next)
+                    if (meta.next !== '' && !this.props.isFetchProject) {
+                        this.props.fetchProjects(meta.next)
                     }
                 }}
                 onEndReachedThreshold={0.7}
@@ -36,7 +38,7 @@ class ProjectCellContainer extends Component {
                 }
                 ListFooterComponent={
                     <FooterCell isLoadMore={this.props.isFetchProject} 
-                        numberOfRow={this.props.projects.length} />
+                        numberOfRow={data.length} />
                 }
             />
         );
@@ -47,8 +49,7 @@ const mapStateToProps = (state, props) =>
     createStructuredSelector({
         isCloseProject: appSelector.isCloseProject(state, props),
         isFetchProject: appSelector.isFetchProject(state, props),
-        projects: projectSelector.getProjectData(state, props),
-        meta: projectSelector.getProjectMeta(state, props),
+        project: projectSelector.getProject(state, props),
     });
 
 export default connect(mapStateToProps, projectAction)(ProjectCellContainer);
