@@ -1,2 +1,2 @@
 # todo-app
-React Native + Redux Obsevable
+React Native + Redux Observable
