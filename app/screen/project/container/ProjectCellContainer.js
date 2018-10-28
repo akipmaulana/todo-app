@@ -21,7 +21,7 @@ class ProjectCellContainer extends Component {
                 data={this.props.projects}
                 keyExtractor={item => String(item.id)}
                 onEndReached={ (info) => {
-                    if (this.props.meta.next !== '') {
+                    if (this.props.meta.next !== '' && !this.props.isFetchProject) {
                         this.props.fetchProjects(this.props.meta.next)
                     }
                 }}

@@ -1,4 +1,4 @@
-import { fromJS, Map } from 'immutable';
+import { fromJS, Map, hasIn } from 'immutable';
 import { ActionType } from 'app/AppConstant';
 
 const initialProjectScreenState = fromJS({
@@ -18,6 +18,12 @@ export default function projectScreenReducer(state = initialProjectScreenState, 
         case ActionType.PROJECT_FETCH_SUCCESS:
             let project = state.get('project')
             let payload = Map(action.payload)
+            if (state.getIn(['project', 'data']) || false) {
+                let oldData = project.get('data')
+                let newData = oldData.concat(payload.get('data'))
+                return state.setIn(['project', 'data'], newData)
+                            .setIn(['project', 'meta'], payload.get('meta'))
+            }
             return state.set('project', project.merge(payload))
         case ActionType.PROJECT_CLOSE_SUCCESS:
             let list = state.getIn(['project', 'data'])
