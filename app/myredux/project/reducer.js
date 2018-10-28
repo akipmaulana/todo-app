@@ -1,5 +1,6 @@
-import { fromJS, Map, hasIn } from 'immutable';
+import { fromJS, Map, hasIn, List } from 'immutable';
 import { ActionType } from 'app/AppConstant';
+import { ReduxHelper } from "helper";
 
 const initialProjectScreenState = fromJS({
     isVisibleModal: false,
@@ -20,7 +21,7 @@ export default function projectScreenReducer(state = initialProjectScreenState, 
             let payload = Map(action.payload)
             if (state.getIn(['project', 'data']) || false) {
                 let oldData = project.get('data')
-                let newData = oldData.concat(payload.get('data'))
+                let newData = ReduxHelper.concatNoRedundant(oldData, payload.get('data'))
                 return state.setIn(['project', 'data'], newData)
                             .setIn(['project', 'meta'], payload.get('meta'))
             }
