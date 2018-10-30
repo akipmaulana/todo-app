@@ -10,7 +10,7 @@ export default StyleSheet.create({
         justifyContent: 'center',
         position: 'absolute',
         alignSelf: 'center',
-        marginTop: Dimen.project_header_height() + 64/2 + 4,
+        marginTop: Dimen.project_header_height() + 64/2,
     },
     fab_button: {
       backgroundColor: Color.amber,

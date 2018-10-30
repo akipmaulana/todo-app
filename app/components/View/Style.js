@@ -8,7 +8,9 @@ export default StyleSheet.create({
         height: Dimen.full_height,
     },
     header_view: {
-        padding: 16,
+        paddingBottom: 16,
+        paddingLeft: 16,
+        paddingRight: 16,
         marginBottom: 8,
         backgroundColor: Color.white,
         justifyContent: 'center',
@@ -20,7 +22,7 @@ export default StyleSheet.create({
     header_separator_vertical: { 
         backgroundColor: Color.blue, 
         width: 1, 
-        height: 96, 
+        height: Dimen.height(0.1), 
         marginBottom: 32
     },
     primary_header_view_text: {
