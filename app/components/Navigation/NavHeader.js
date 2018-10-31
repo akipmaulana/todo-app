@@ -5,13 +5,15 @@ import Style from "./Style";
 
 export const NavHeader = props => {
 
-    const { text } = props;
+    const { text, isHome = false } = props;
+
+    const iconName = isHome ? 'menu': 'arrow-back'
 
     return (
         <Header style={Style.nav_container} androidStatusBarColor={ Style.nav_container.backgroundColor }>
             <Left>
                 <Button transparent>
-                    <MaterialIcons name='menu' style={Style.nav_icon} />
+                    <MaterialIcons name={iconName} style={Style.nav_icon} />
                 </Button>
             </Left>
             <Body>
