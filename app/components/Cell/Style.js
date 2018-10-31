@@ -21,7 +21,7 @@ export default StyleSheet.create({
         fontFamily: Font.family.regular,
         color: Color.light_grey4
     },
-    project_name_text: {
+    name_text: {
         alignSelf: 'flex-start',
         fontSize: Font.size.x_large,
         fontFamily: Font.family.regular,
@@ -36,9 +36,25 @@ export default StyleSheet.create({
         position: 'absolute', 
         zIndex: 1
     },
+    task_badge_cell: {
+        borderRadius: Dimen.circular_radius(Dimen.badge_cell, Dimen.badge_cell),
+        alignSelf: 'flex-end',
+        position: 'absolute',
+        zIndex: 1,
+        backgroundColor: Color.green, 
+        width: 56, 
+        height: 20, 
+        justifyContent: "center",
+        alignItems: "center",
+    },
     button_close: {
         alignSelf: 'flex-end',
         position: 'absolute', 
         zIndex: 1
+    },
+    flag_task_priority: {
+        fontSize: Font.size.tiny + 2,
+        fontFamily: Font.family.regular,
+        color: Color.white
     }
 })
