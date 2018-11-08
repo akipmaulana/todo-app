@@ -4,3 +4,4 @@ export { ButtonSecondary } from "./ButtonSecondary";
 export { ButtonClose } from "./ButtonClose";
 export { ButtonOpen } from "./ButtonOpen";
 export { ButtonDelete } from "./ButtonDelete";
+export { ButtonLink } from "./ButtonLink";

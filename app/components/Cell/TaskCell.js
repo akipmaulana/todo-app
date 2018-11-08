@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 import {Card, CardItem, Text, Body, View} from 'native-base';
 import Style from "./Style";
-import { ButtonClose, ButtonOpen } from 'components/Button'
+import { ButtonClose, ButtonOpen, ButtonLink } from 'components/Button'
 import { Color } from 'config'
-import { LoadingPrimary } from '../Loading/LoadingPrimary';
+import { LoadingPrimary } from 'components/Loading';
 
 export class TaskCell extends Component {
 
@@ -44,6 +44,10 @@ export class TaskCell extends Component {
                                     <ButtonOpen onPress={this.handlePress.bind(this)} /> :
                                     <ButtonClose onPress={this.handlePress.bind(this)} />
                             }
+                            <View style={{flexDirection: 'row', position: 'absolute', bottom: 0}}>
+                                <ButtonLink marginLeft={-14}  text={'url'} />
+                                <ButtonLink text={'comment'} />
+                            </View>
                         </Body>
                     </CardItem>
                 </Card>
