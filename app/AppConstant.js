@@ -1,10 +1,11 @@
 const Env = {
     DEV: 'https://todo-node-express.herokuapp.com/api/v1/',
-    TODOLIST: 'https://beta.todoist.com/API/v8/'
+    TODOLIST: 'https://beta.todoist.com/API/v8/',
+    APIARY: 'https://private-519e40-tudu1.apiary-mock.com/'
 }
 
 const ApiConfig = {
-    BASE_URL: Env.DEV,
+    BASE_URL: Env.APIARY,
 }
 
 export const ApiPath = {
