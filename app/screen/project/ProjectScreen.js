@@ -7,7 +7,8 @@ import { ButtonFab } from 'components/Button'
 import { Color } from 'config'
 import ProjectCellContainer from "./container/ProjectCellContainer"
 import { connect } from 'react-redux';
-import { projectAction } from 'myredux';
+import { createStructuredSelector } from 'reselect';
+import { projectAction, projectSelector } from 'myredux';
 
 class ProjectScreen extends Component {
 
@@ -19,7 +20,7 @@ class ProjectScreen extends Component {
         return (
           <Container style={{backgroundColor: Color.light_grey1}}>
             <NavHeader text={ 'PROJECTS' } isHome={true} />
-            <ProjectHeaderView amount_project={ 9 } />
+            <ProjectHeaderView amount_project={ this.props.metaProject.totalRow } />
             <ProjectCellContainer ref='projectContainer' navigation={this.props.navigation}/>
             <ButtonFab icon={"add"} onPress={this.buttonAddClickHandler.bind(this)}/>
             <ProjectFormModal/>
@@ -28,4 +29,9 @@ class ProjectScreen extends Component {
     }
 }
 
-export default connect(null, projectAction)(ProjectScreen);
+const mapStateToProps = (state, props) =>
+    createStructuredSelector({
+        metaProject: projectSelector.getMetaProject(state, props)
+    });
+
+export default connect(mapStateToProps, projectAction)(ProjectScreen);

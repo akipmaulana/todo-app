@@ -2,6 +2,12 @@ import { createSelector } from 'reselect';
 
 const selectProjectScreen = (state, props) => state.get('projectScreen');
 
+export const getMetaProject = () => 
+    createSelector(
+        selectProjectScreen,
+        state => state.get('project').get('meta') || { totalRow: 0 }
+    );
+
 export const getProject = () =>
     createSelector(
         selectProjectScreen, 
