@@ -16,7 +16,7 @@ export default class TaskScreen extends Component {
       const project = this.props.navigation.getParam('project', {})
       return (
         <Container style={{backgroundColor: Color.light_grey1}}>
-          <NavHeader text={ project.name } />
+          <NavHeader text={ project.name } navigation={this.props.navigation} />
           <TaskHeaderView />
           <TaskCellContainer navigation={this.props.navigation}/>
           <ButtonFab icon={"add"} onPress={this.buttonAddClickHandler.bind(this)} />

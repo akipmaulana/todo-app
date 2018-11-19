@@ -19,7 +19,7 @@ class ProjectScreen extends Component {
     render() {
         return (
           <Container style={{backgroundColor: Color.light_grey1}}>
-            <NavHeader text={ 'PROJECTS' } isHome={true} />
+            <NavHeader text={ 'PROJECTS' } isHome={true} navigation={this.props.navigation} />
             <ProjectHeaderView amount_project={ this.props.metaProject.totalRow } />
             <ProjectCellContainer ref='projectContainer' navigation={this.props.navigation}/>
             <ButtonFab icon={"add"} onPress={this.buttonAddClickHandler.bind(this)}/>
