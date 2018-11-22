@@ -3,11 +3,12 @@ import { createStore, applyMiddleware } from 'redux';
 import { createEpicMiddleware, combineEpics } from 'redux-observable';
 import { composeWithDevTools } from "redux-devtools-extension";
 import { combineReducers } from 'redux-immutable';
-import { projectEpic, projectReducer, appReducer  } from 'myredux'
+import { projectEpic, taskEpic, projectReducer, taskReducer, appReducer  } from 'myredux'
 
 const rootReducer = combineReducers({
     app: appReducer,
     projectScreen: projectReducer,
+    taskScreen: taskReducer,
 });
 
 const rootEpic = combineEpics(
@@ -16,6 +17,11 @@ const rootEpic = combineEpics(
     projectEpic.fetchEpic, 
     projectEpic.updateEpic, 
     projectEpic.closeEpic,
+    taskEpic.addEpic, 
+    taskEpic.deleteEpic,
+    taskEpic.fetchEpic, 
+    taskEpic.updateEpic, 
+    taskEpic.closeEpic,
 );
 
 const epicMiddleware = createEpicMiddleware(rootEpic);

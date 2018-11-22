@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { FlatList, TouchableOpacity } from 'react-native';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
-import { projectAction, projectSelector, appSelector } from 'myredux';
+import { taskAction, taskSelector, appSelector } from 'myredux';
 import { TaskCell, FooterCell } from 'components/Cell'
 import { ScreenName } from "app/AppConstant";
 
@@ -13,36 +13,35 @@ class TaskCellContainer extends Component {
     }
 
     componentDidMount() {
-        this.props.fetchProjects()
+        this.props.fetchTasks()
     }
 
     render() {
         const { navigate } = this.props.navigation
-        const data = this.props.project.data || []
-        const meta = this.props.project.meta
+        const data = this.props.task.data || []
+        const meta = this.props.task.meta
         return (
             <FlatList
                 data={data}
                 keyExtractor={item => String(item.id)}
                 onEndReached={ (info) => {
-                    if (meta.next !== '' && !this.props.isFetchProject) {
-                        this.props.fetchProjects(meta.next)
+                    if (meta.next !== '' && !this.props.isFetchTask) {
+                        this.props.fetchTasks(meta.next)
                     }
                 }}
                 onEndReachedThreshold={0.7}
                 renderItem={ item =>
                     <TouchableOpacity 
-                        onPress={ () => navigate(ScreenName.TASK, { project: item.item }) }
-                        onLongPress={ () => this.props.toogleProjectFormModal(true, item) }
+                        onLongPress={ () => this.props.toogleTaskFormModal(true, item) }
                     >
                         <TaskCell 
                             data={item} 
-                            isCloseProject={this.props.isCloseProject}
-                            handleClosed={(data) => this.props.closeProject(data)} />
+                            isCloseTask={this.props.isCloseTask}
+                            handleClosed={(data) => this.props.closeTask(data)} />
                     </TouchableOpacity>
                 }
                 ListFooterComponent={
-                    <FooterCell isLoadMore={this.props.isFetchProject} 
+                    <FooterCell isLoadMore={this.props.isFetchTask} 
                         numberOfRow={data.length} />
                 }
             />
@@ -52,9 +51,9 @@ class TaskCellContainer extends Component {
 
 const mapStateToProps = (state, props) =>
     createStructuredSelector({
-        isCloseProject: appSelector.isCloseProject(state, props),
-        isFetchProject: appSelector.isFetchProject(state, props),
-        project: projectSelector.getProject(state, props),
+        isCloseTask: appSelector.isCloseTask(state, props),
+        isFetchTask: appSelector.isFetchTask(state, props),
+        task: taskSelector.getTask(state, props),
     });
 
-export default connect(mapStateToProps, projectAction)(TaskCellContainer);
+export default connect(mapStateToProps, taskAction)(TaskCellContainer);

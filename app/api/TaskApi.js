@@ -4,9 +4,9 @@ import BaseApi from './BaseApi'
 
 export default class TaskApi extends BaseApi {
 
-    fetch = () => {
+    fetch = (query) => {
         return ajax({
-            url: ApiPath.TASK,
+            url: `${ApiPath.TASK}?${query}`,
             method: 'GET',
             headers: this.requestHeaders()
         })
