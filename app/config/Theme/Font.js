@@ -18,8 +18,8 @@ export const Font = {
         small: 11,
         medium: 13,
         regular: 15,
-        large: Platform.os === 'ios' ? 17 : 15,
-        x_large: Platform.os === 'ios' ? 24 : 17,
+        large: Platform.os === 'ios' ? 17 : 9,
+        x_large: Platform.os === 'ios' ? 24 : 16,
         xx_large: Platform.os === 'ios' ? 32 : 24,
         xxx_large: Platform.os === 'ios' ? 78 : 32,
     }
