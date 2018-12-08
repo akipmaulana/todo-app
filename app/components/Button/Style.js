@@ -1,4 +1,4 @@
-import {StyleSheet} from "react-native";
+import {StyleSheet, Platform} from "react-native";
 import { Color, Font, Dimen } from "config";
 
 export default StyleSheet.create({
@@ -10,8 +10,7 @@ export default StyleSheet.create({
         justifyContent: 'center',
         position: 'absolute',
         alignSelf: 'center',
-        bottom: Dimen.height(0.65),
-        //marginTop: Dimen.project_header_height() + 64/2,
+        bottom: Platform.OS === 'ios' ? "65%" : "63%"
     },
     fab_button: {
       backgroundColor: Color.amber,
