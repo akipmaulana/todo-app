@@ -14,7 +14,6 @@ export default StyleSheet.create({
     },
     fab_button: {
       backgroundColor: Color.amber,
-      fontFamily: Font.family.regular,
       width: 54,
       height: 54,
       alignSelf: 'center',
@@ -23,7 +22,7 @@ export default StyleSheet.create({
       borderRadius: Dimen.circular_radius(54, 54),
     },
     fab_icon: {
-        fontSize: Font.size.xxx_large,
+        fontSize: Dimen.width(0.07),
         color: Color.white,
         alignSelf: 'center',
     },

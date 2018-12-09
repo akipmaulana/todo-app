@@ -1,6 +1,5 @@
-export { TextTiny } from "./TextTiny";
+export { TextBase } from "./TextBase";
 export { TextSmall } from "./TextSmall";
-export { TextMedium } from "./TextMedium";
 export { TextRegular } from "./TextRegular";
 export { TextLarge } from "./TextLarge";
 export { TextExtraLarge } from "./TextExtraLarge";

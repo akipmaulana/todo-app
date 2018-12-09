@@ -11,7 +11,7 @@ export default StyleSheet.create({
     },
     flag_last_update: {
         alignSelf: 'flex-start',
-        fontSize: Font.size.tiny,
+        fontSize: Font.size.small,
         fontFamily: Font.family.regular,
         color: Color.light_grey4
     },
@@ -53,7 +53,7 @@ export default StyleSheet.create({
         zIndex: 1
     },
     flag_task_priority: {
-        fontSize: Font.size.tiny + 2,
+        fontSize: Font.size.small,
         fontFamily: Font.family.regular,
         color: Color.white
     }

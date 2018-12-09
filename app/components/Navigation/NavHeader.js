@@ -22,7 +22,6 @@ export const NavHeader = props => {
   return (
     <Header
       style={Style.nav_container}
-      iosBarStyle="dark-content"
       androidStatusBarColor={Style.status_bar.backgroundColor}
     >
       <Left

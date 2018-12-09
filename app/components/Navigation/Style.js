@@ -1,5 +1,5 @@
 import { StyleSheet, Platform } from "react-native";
-import { Color, Font } from "config";
+import { Color, Font, Dimen } from "config";
 
 export default StyleSheet.create({
   status_bar: {
@@ -16,6 +16,6 @@ export default StyleSheet.create({
   },
   nav_icon: {
     color: Color.blue,
-    fontSize: Font.size.xx_large
+    fontSize: Dimen.width(0.07)
   }
 });
