@@ -20,6 +20,6 @@ export const Font = {
     large: Dimen.width(0.04),
     x_large: Dimen.width(0.05),
     xx_large: Dimen.width(0.055),
-    xxx_large: Dimen.width(0.065)
+    xxx_large: Dimen.width(0.1)
   }
 };
