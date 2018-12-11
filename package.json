@@ -18,7 +18,7 @@
     "react-native-modal": "^6.5.0",
     "react-native-requests-logger": "^1.1.5",
     "react-native-splash-screen": "^3.1.1",
-    "react-native-vector-icons": "^5.0.0",
+    "react-native-vector-icons": "^6.1.0",
     "react-navigation": "^2.14.2",
     "react-redux": "^5.0.7",
     "redux": "^4.0.0",
