@@ -5,17 +5,32 @@ import MaterialIcons from "react-native-vector-icons/MaterialIcons";
 import Style from "./Style";
 
 export const NavHeader = props => {
-  const { navigation, text, isHome = false } = props;
+  const { navigation, text, isHome = false, pop = false } = props;
 
   const iconArrowBack = "arrow-back";
+  const iconClose = "close";
 
-  const iconName = isHome ? "menu" : iconArrowBack;
+  const iconName = pop ? iconClose : iconArrowBack;
 
-  const buttonLeft = isHome ? (
+  const leftContent = isHome ? (
     <Text />
   ) : (
     <Button transparent onPress={() => navigation.goBack(null)}>
       <MaterialIcons name={iconName} style={Style.nav_icon} />
+    </Button>
+  );
+
+  const centerContent = pop ? (
+    <Text />
+  ) : (
+    <Text style={Style.nav_title}>{text}</Text>
+  );
+
+  const rightContent = pop ? (
+    <Text style={{...Style.nav_title, textAlign:'right',}}>{text}</Text>
+  ) : (
+    <Button transparent>
+      <MaterialIcons name="filter-list" style={Style.nav_icon} />
     </Button>
   );
 
@@ -29,23 +44,21 @@ export const NavHeader = props => {
           flex: 1
         }}
       >
-        {buttonLeft}
+        {leftContent}
       </Left>
       <Body
         style={{
           flex: 1
         }}
       >
-        <Text style={Style.nav_title}>{text}</Text>
+        {centerContent}
       </Body>
       <Right
         style={{
           flex: 1
         }}
       >
-        <Button transparent>
-          <MaterialIcons name="filter-list" style={Style.nav_icon} />
-        </Button>
+        {rightContent}
       </Right>
     </Header>
   );

@@ -69,4 +69,5 @@ export const ScreenName = {
     FAVORITE: "Favorite",
     COMPLETE: "Complete",
     TASK: "Task",
+    TASK_FORM: "TaskForm",
 }
