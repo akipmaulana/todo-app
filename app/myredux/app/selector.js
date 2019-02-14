@@ -15,7 +15,7 @@ export const isCloseProject = () =>
     createSelector(
         selectAppRequest, 
         state => {
-            return state.get('PROJECT_CLOSE')
+            return state.get('PROJECT_CLOSE') || false
         }
     );
 

@@ -7,10 +7,6 @@ import { LoadingPrimary } from '../Loading/LoadingPrimary';
 
 export class ProjectCell extends Component {
 
-    state = {
-        closeLoading: false
-    }
-
     handlePress = () => {
         const closeData = {
             index: this.props.data.index,
@@ -18,13 +14,6 @@ export class ProjectCell extends Component {
             isClosed: !this.props.data.item.isClosed
         }
         this.props.handleClosed(closeData)
-        this.setState({closeLoading: true})
-    }
-
-    componentDidUpdate(prevProps) {
-        if (this.props.data.item.isClosed !== prevProps.data.item.isClosed) {
-            this.setState({ closeLoading: false })
-        }
     }
 
     render() {
@@ -45,7 +34,7 @@ export class ProjectCell extends Component {
                         </Body>
                     </CardItem>
                 </Card>
-                <LoadingPrimary loading={this.state.closeLoading}/>
+               <LoadingPrimary loading={this.props.isCloseProject}/>
             </View>
         );
     }
